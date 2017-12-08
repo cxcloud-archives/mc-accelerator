@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.login-wrapper {
+  background-image: url(/assets/bag.jpg);
+
+  .login-group {
+    select,
+    input {
+      border: 1px solid $light-grey;
+      height: 3em;
+      padding: 0.5em;
+    }
+
+    .select:after {
+      top: 1em;
+    }
+
+    .login-btn {
+      color: $night-rider;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      background-color: $yellow;
+      border: none;
+      padding: 0.5em 0;
+    }
+  }
+}
