@@ -1,5 +1,5 @@
 <div class="login-wrapper">
-  <form class="login" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <form class="login" [formGroup]="loginForm" novalidate>
     <label class="title">
       <h3 class="welcome">Welcome to</h3>
       CX Cloud Merchant Center
@@ -7,14 +7,14 @@
     </label>
     <div class="login-group">
       <div class="auth-source select">
-        <select id="login-auth-source" name="currentEnv" [(ngModel)]="currentEnv">
+        <select id="login-auth-source" formControlName="environment">
           <option *ngFor="let env of envs" [value]="env.key">{{ env.name }}</option>
         </select>
       </div>
-      <input class="username" name="email" type="text" id="login_username" placeholder="Username" ngModel>
-      <input class="password" name="password" type="password" id="login_password" placeholder="Password" ngModel>
+      <input class="username" type="text" formControlName="username" id="login_username" placeholder="Username">
+      <input class="password" formControlName="password" type="password" id="login_password" placeholder="Password">
       <div class="error active" *ngIf="hasError">Invalid user name or password</div>
-      <button type="submit" class="login-btn">Login</button>
+      <button type="submit" class="login-btn" (click)="login()">Login</button>
     </div>
   </form>
 </div>
