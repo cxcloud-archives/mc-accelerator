@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/auth/auth.service';
+import { CurrentUserService } from '../core/auth/current-user.service';
 
 @Component({
   selector: 'app-login',
@@ -24,10 +25,14 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private currentUserService: CurrentUserService
   ) {}
 
   ngOnInit() {
+    if (this.currentUserService.isLoggedIn) {
+      this.router.navigateByUrl('/dashboard');
+    }
     this.loginForm = this.formBuilder.group({
       environment: [this.envs[0].key, Validators.required],
       username: ['', Validators.required],
@@ -42,7 +47,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(username, password, env).subscribe(resp => {
         if (resp) {
-          // this.router.navigateByUrl('/mc/dashboard');
+          this.router.navigateByUrl('/dashboard');
         }
       });
     }

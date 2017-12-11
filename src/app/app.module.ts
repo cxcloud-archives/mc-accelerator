@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { LoginModule } from './login/login.module';
     ClarityModule.forRoot(),
     CoreModule,
     LoginModule,
+    DashboardModule,
     AppRoutingModule
   ],
   providers: [],
