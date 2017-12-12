@@ -1,0 +1,22 @@
+@import '../../../variables.scss';
+
+section {
+  margin-top: 2em;
+  .nav-link {
+    color: $white;
+    margin: 0;
+    padding: 16px;
+    border-radius: 0;
+    &:hover {
+      background-color: $limed-spruce;
+      color: $yellow;
+    }
+
+    i {
+      font-size: 30px;
+    }
+  }
+  .tooltip-content {
+    border-radius: 0;
+  }
+}

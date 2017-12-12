@@ -1,0 +1,10 @@
+<section class="sidenav-content">
+  <a class="nav-link" *ngFor="let item of sideMenu" href="{{item.link}}">
+    <clr-tooltip>
+      <i clrTooltipTrigger class="{{item.icon}}" title="{{item.title}}"></i>
+      <clr-tooltip-content *clrIfOpen>
+        <span>{{item.title}}</span>
+      </clr-tooltip-content>
+    </clr-tooltip>
+  </a>
+</section>

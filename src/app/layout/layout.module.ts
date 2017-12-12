@@ -6,8 +6,9 @@ import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
 
 import { HeaderComponent } from './header/header.component';
+import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
 
-const DECLARATIONS = [HeaderComponent];
+const DECLARATIONS = [HeaderComponent, SidenavBarComponent];
 
 @NgModule({
   imports: [
