@@ -6,6 +6,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { CurrentUserService } from './auth/current-user.service';
 import { AuthService } from './auth/auth.service';
+import { OrderService } from './order/order.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
@@ -18,6 +19,7 @@ import { AuthService } from './auth/auth.service';
       useClass: AuthInterceptor,
       multi: true
     },
+    OrderService,
     AuthService
   ]
 })

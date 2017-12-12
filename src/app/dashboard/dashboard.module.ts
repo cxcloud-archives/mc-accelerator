@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LayoutModule } from '../layout/layout.module';
+import { OrdersComponent } from './orders/orders.component';
 
-const DECLARATIONS = [DashboardComponent];
+const DECLARATIONS = [DashboardComponent, OrdersComponent];
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     CoreModule,
+    ReactiveFormsModule,
     LayoutModule,
     DashboardRoutingModule
   ],
