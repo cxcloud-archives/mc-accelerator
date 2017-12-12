@@ -3,7 +3,7 @@
 <clr-datagrid *ngIf="orders">
   <clr-dg-column *ngFor="let name of columnNames">{{name}}</clr-dg-column>
 
-  <clr-dg-row *ngFor="let order of orders.results">
+  <clr-dg-row *clrDgItems="let order of orders.results">
     <clr-dg-cell>{{order.id}}</clr-dg-cell>
     <clr-dg-cell>{{order.orderState}}</clr-dg-cell>
     <clr-dg-cell>{{0.01 * order.totalPrice.centAmount | currency : order.totalPrice.currencyCode : "true"}}</clr-dg-cell>
@@ -11,5 +11,8 @@
     <clr-dg-cell>{{order.customerEmail}}</clr-dg-cell>
   </clr-dg-row>
 
-  <clr-dg-footer>{{ orders.results.length}} orders</clr-dg-footer>
+  <clr-dg-footer>
+    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} orders
+    <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
+  </clr-dg-footer>
 </clr-datagrid>
