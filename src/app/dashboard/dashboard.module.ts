@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClarityModule } from 'clarity-angular';
+
 import { CoreModule } from '../core/core.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -14,6 +16,7 @@ const DECLARATIONS = [DashboardComponent, OrdersComponent];
     CommonModule,
     CoreModule,
     ReactiveFormsModule,
+    ClarityModule.forRoot(),
     LayoutModule,
     DashboardRoutingModule
   ],

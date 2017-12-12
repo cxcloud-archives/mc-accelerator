@@ -9,9 +9,16 @@ import { Order } from '@cxcloud/ct-types/orders';
 })
 export class OrdersComponent implements OnInit {
   orders: Order[];
+  columnNames = [
+    'Order ID',
+    'Order Status',
+    'Order Total',
+    'Creation Date',
+    'Customer Email'
+  ];
   constructor(private orderService: OrderService) {}
 
   ngOnInit() {
-    this.orderService.getOrders().subscribe(resp => (this.orders = resp));
+    this.orderService.getOrders().subscribe(result => (this.orders = result));
   }
 }
