@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="branding">
+    <i class="mdi mdi-cloud-outline mdi-48px"></i>
+    <div class="title">
+      <div>CX Cloud</div>
+      <div>Merchant Center</div>
+    </div>
+  </div>
+  <div class="header-nav">
+    <a class="nav-link nav-text" *ngFor="let item of navMenu" href="{{item.link}}">
+      {{item.title}}
+    </a>
+  </div>
+  <div class="header-actions">
+    <clr-dropdown>
+      <button class="nav-icon" clrDropdownTrigger>
+        <i class="mdi mdi-account-outline mdi-24px"></i>
+        <i class="mdi mdi-chevron-down mdi-24px"></i>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <a *ngFor="let item of accountMenu" href="..." clrDropdownItem>{{item.title}}</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+</header>

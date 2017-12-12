@@ -1,0 +1,37 @@
+@import '../../../variables.scss';
+
+header {
+  background-color: $white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+  min-height: 43px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .branding {
+    padding: 5px 1rem;
+    cursor: pointer;
+    .title {
+      line-height: 1.1rem;
+      color: $ebony-clay;
+      font-size: 1.3em;
+    }
+    i {
+      color: $yellow;
+      padding-top: 10px;
+      padding-right: 10px;
+    }
+  }
+  .header-nav {
+    .nav-link {
+      color: $ebony-clay;
+      font-size: 1.1em;
+    }
+  }
+
+  .header-actions {
+    button {
+      color: $ebony-clay;
+    }
+  }
+}

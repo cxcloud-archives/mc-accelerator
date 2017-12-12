@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { LayoutModule } from '../layout/layout.module';
 
 const DECLARATIONS = [DashboardComponent];
 
@@ -14,6 +15,7 @@ const DECLARATIONS = [DashboardComponent];
     FormsModule,
     ReactiveFormsModule,
     CoreModule,
+    LayoutModule,
     DashboardRoutingModule
   ],
   declarations: [...DECLARATIONS],
