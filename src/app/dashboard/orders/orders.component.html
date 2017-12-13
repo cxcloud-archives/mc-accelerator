@@ -8,12 +8,7 @@
       <clr-dg-cell>{{0.01 * order.totalPrice.centAmount | currency : order.totalPrice.currencyCode : "true"}}</clr-dg-cell>
       <clr-dg-cell>{{order.lineItems.length}}</clr-dg-cell>
       <clr-dg-cell>
-        <span class="label" [ngClass]="{
-          'Open': 'label-info',
-          'Confirmed': 'label-warning',
-          'Complete': 'label-success',
-          'Cancelled': 'label-error'
-        }[order.orderState]">
+        <span class="label" [ngClass]="getOrderStateClass()[order.orderState]">
           {{order.orderState}}
         </span>
       </clr-dg-cell>

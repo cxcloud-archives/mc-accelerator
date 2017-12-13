@@ -23,4 +23,13 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
     this.orderService.getOrders().subscribe(result => (this.orders = result));
   }
+
+  getOrderStateClass() {
+    return {
+      Open: 'label-info',
+      Confirmed: 'label-warning',
+      Complete: 'label-success',
+      Cancelled: 'label-error'
+    };
+  }
 }
