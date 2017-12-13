@@ -36,6 +36,9 @@ export class AuthService {
   }
 
   public logout() {
-    this.router.navigateByUrl('/');
+    this.currentUserService.token.next(null);
+    this.currentUserService.customer.next(null);
+    this.currentUserService.environment.next(null);
+    this.router.navigateByUrl('');
   }
 }

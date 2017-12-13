@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentUserService } from '../../../core/auth/current-user.service';
+import { AuthService } from '../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,10 @@ import { CurrentUserService } from '../../../core/auth/current-user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private currentUserService: CurrentUserService) {}
+  constructor(
+    private currentUserService: CurrentUserService,
+    private authService: AuthService
+  ) {}
   navMenu: Array<any> = [
     { title: 'Contentful', link: 'https://www.contentful.com/' },
     { title: 'Algolia', link: 'https://www.algolia.com/' },
@@ -25,5 +29,9 @@ export class HeaderComponent implements OnInit {
       return this.currentUserService.customer.getValue();
     }
     return false;
+  }
+
+  logOut() {
+    this.authService.logout();
   }
 }

@@ -19,7 +19,7 @@
         <i class="mdi mdi-chevron-down mdi-18px"></i>
       </button>
       <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-        <a *ngFor="let item of accountMenu" href="..." clrDropdownItem>{{item.title}}</a>
+        <a *ngFor="let item of accountMenu" (click)="logOut()" clrDropdownItem>{{item.title}}</a>
       </clr-dropdown-menu>
     </clr-dropdown>
   </div>
