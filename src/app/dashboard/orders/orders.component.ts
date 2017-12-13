@@ -9,12 +9,12 @@ import { Order } from '@cxcloud/ct-types/orders';
 })
 export class OrdersComponent implements OnInit {
   orders: Order[];
-  columnNames = [
-    'Order ID',
-    'Order Status',
-    'Order Total',
-    'Creation Date',
-    'Customer Email'
+  columns: Array<any> = [
+    { name: 'Order ID', field: 'id' },
+    { name: 'Order Status', field: 'orderState' },
+    { name: 'Order Total', field: 'totalPrice.centAmount' },
+    { name: 'Creation Date', field: 'createdAt' },
+    { name: 'Customer Email', field: 'customerEmail' }
   ];
   constructor(private orderService: OrderService) {}
 

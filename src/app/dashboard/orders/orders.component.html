@@ -1,7 +1,7 @@
 <h1 class="title">Orders</h1>
 
 <clr-datagrid>
-  <clr-dg-column *ngFor="let name of columnNames">{{name}}</clr-dg-column>
+  <clr-dg-column *ngFor="let column of columns" [clrDgField]="column.field">{{column.name}}</clr-dg-column>
   <ng-container *ngIf="orders">
     <clr-dg-row *clrDgItems="let order of orders.results">
       <clr-dg-cell>{{order.id}}</clr-dg-cell>
