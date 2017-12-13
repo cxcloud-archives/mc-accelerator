@@ -4,12 +4,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from 'clarity-angular';
 
 import { CoreModule } from '../core/core.module';
-import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { LayoutModule } from '../layout/layout.module';
+import { LayoutModule } from './layout/layout.module';
+import { DashboardComponent } from './dashboard.component';
 import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
-const DECLARATIONS = [DashboardComponent, OrdersComponent];
+const DECLARATIONS = [
+  DashboardComponent,
+  OrdersComponent,
+  OrderDetailsComponent
+];
 
 @NgModule({
   imports: [

@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +21,6 @@ import { LayoutModule } from './layout/layout.module';
     }),
     CoreModule,
     LoginModule,
-    LayoutModule,
     DashboardModule,
     AppRoutingModule
   ],
