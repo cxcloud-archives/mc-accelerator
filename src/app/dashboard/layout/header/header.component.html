@@ -13,9 +13,10 @@
   </div>
   <div class="header-actions">
     <clr-dropdown>
-      <button class="nav-icon" clrDropdownTrigger>
-        <i class="mdi mdi-account-outline mdi-24px"></i>
-        <i class="mdi mdi-chevron-down mdi-24px"></i>
+      <button class="nav-text" clrDropdownTrigger>
+        {{currentUser.firstName}}
+        <i class="mdi mdi-account-outline mdi-18px"></i>
+        <i class="mdi mdi-chevron-down mdi-18px"></i>
       </button>
       <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
         <a *ngFor="let item of accountMenu" href="..." clrDropdownItem>{{item.title}}</a>
