@@ -5,8 +5,18 @@
   <ng-container *ngIf="orders">
     <clr-dg-row *clrDgItems="let order of orders.results">
       <clr-dg-cell>{{order.id}}</clr-dg-cell>
-      <clr-dg-cell>{{order.orderState}}</clr-dg-cell>
       <clr-dg-cell>{{0.01 * order.totalPrice.centAmount | currency : order.totalPrice.currencyCode : "true"}}</clr-dg-cell>
+      <clr-dg-cell>{{order.lineItems.length}}</clr-dg-cell>
+      <clr-dg-cell>
+        <span class="label" [ngClass]="{
+          'Open': 'label-info',
+          'Confirmed': 'label-warning',
+          'Complete': 'label-success',
+          'Cancelled': 'label-error'
+        }[order.orderState]">
+          {{order.orderState}}
+        </span>
+      </clr-dg-cell>
       <clr-dg-cell>{{order.createdAt | date}}</clr-dg-cell>
       <clr-dg-cell>{{order.customerEmail}}</clr-dg-cell>
     </clr-dg-row>

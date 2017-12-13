@@ -11,11 +11,13 @@ export class OrdersComponent implements OnInit {
   orders: Order[];
   columns: Array<any> = [
     { name: 'Order ID', field: 'id' },
-    { name: 'Order Status', field: 'orderState' },
     { name: 'Order Total', field: 'totalPrice.centAmount' },
-    { name: 'Creation Date', field: 'createdAt' },
+    { name: 'No. of items', field: 'lineItems.length' },
+    { name: 'Order Status', field: 'orderState' },
+    { name: 'Date Created', field: 'createdAt' },
     { name: 'Customer Email', field: 'customerEmail' }
   ];
+
   constructor(private orderService: OrderService) {}
 
   ngOnInit() {
