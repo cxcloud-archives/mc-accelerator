@@ -4,6 +4,18 @@
     <clr-tab>
       <button clrTabLink id="link1">Approve Order</button>
       <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
+        <div class="row flex-items-xs-between">
+          <div class="col-xs-4 date">
+            <span class="clr-example-col-value">
+              Date created: {{order?.createdAt | date:'medium'}}
+            </span>
+          </div>
+          <div class="col-xs-4 date">
+            <span class="clr-example-col-value">
+              Date modified: {{order?.lastModifiedAt | date:'medium'}}
+            </span>
+          </div>
+        </div>
         <app-info-card header="Order Details"></app-info-card>
         <app-info-card header="Customer"></app-info-card>
         <app-info-card header="Order Items"></app-info-card>
