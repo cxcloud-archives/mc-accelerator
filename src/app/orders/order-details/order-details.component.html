@@ -3,8 +3,10 @@
   <clr-tabs>
     <clr-tab>
       <button clrTabLink id="link1">Approve Order</button>
-      <clr-tab-content id="content1" *clrIfActive="true">
-        Approve
+      <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
+        <app-info-card header="Order Details"></app-info-card>
+        <app-info-card header="Customer"></app-info-card>
+        <app-info-card header="Order Items"></app-info-card>
       </clr-tab-content>
     </clr-tab>
     <clr-tab>

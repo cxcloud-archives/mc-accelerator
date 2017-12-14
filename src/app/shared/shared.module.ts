@@ -4,12 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
-import { SharedModule } from '../shared/shared.module';
-import { OrdersComponent } from './orders.component';
-import { OrdersRoutingModule } from './orders-routing.module';
-import { OrderDetailsComponent } from './order-details/order-details.component';
 
-const DECLARATIONS = [OrdersComponent, OrderDetailsComponent];
+import { InfoCardComponent } from './info-card/info-card.component';
+
+const DECLARATIONS = [InfoCardComponent];
 
 @NgModule({
   imports: [
@@ -17,11 +15,9 @@ const DECLARATIONS = [OrdersComponent, OrderDetailsComponent];
     FormsModule,
     RouterModule,
     HttpModule,
-    ClarityModule.forRoot(),
-    OrdersRoutingModule,
-    SharedModule
+    ClarityModule.forRoot()
   ],
   declarations: [...DECLARATIONS],
   exports: [...DECLARATIONS]
 })
-export class OrdersModule {}
+export class SharedModule {}
