@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<div class="main-container" *ngIf="currentUserService.isLoggedIn; else login">
+  <app-header></app-header>
+  <div class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+    <nav class="sidenav">
+      <app-sidenav-bar></app-sidenav-bar>
+    </nav>
+  </div>
+</div>
+
+<ng-template #login>
+  <router-outlet></router-outlet>
+</ng-template>

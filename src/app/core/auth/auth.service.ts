@@ -39,6 +39,6 @@ export class AuthService {
     this.currentUserService.token.next(null);
     this.currentUserService.customer.next(null);
     this.currentUserService.environment.next(null);
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/login');
   }
 }

@@ -6,11 +6,13 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { LayoutModule } from './layout/layout.module';
 import { LoginModule } from './login/login.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { OrdersModule } from './orders/orders.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     ClarityModule.forRoot(),
     BrowserModule,
@@ -19,9 +21,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
       separator: '.',
       caseSensitive: true
     }),
+    LayoutModule,
     CoreModule,
     LoginModule,
-    DashboardModule,
+    OrdersModule,
     AppRoutingModule
   ],
   providers: [],

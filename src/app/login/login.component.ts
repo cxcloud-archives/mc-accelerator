@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.currentUserService.isLoggedIn) {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/');
     }
     this.loginForm = this.formBuilder.group({
       environment: [this.envs[0].key, Validators.required],
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(username, password, env).subscribe(resp => {
         if (resp) {
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/');
         }
       });
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from '../../core/order/order.service';
+import { OrderService } from '../core/order/order.service';
 import { Order } from '@cxcloud/ct-types/orders';
 
 @Component({
