@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
 
-import { InfoCardComponent } from './info-card/info-card.component';
-import { BasicCardComponent } from './basic-card/basic-card.component';
+import { InfoCardComponent } from './pannel/pannel.component';
+import { BasicCardComponent } from './info-box/info-box.component';
 
 const DECLARATIONS = [InfoCardComponent, BasicCardComponent];
 

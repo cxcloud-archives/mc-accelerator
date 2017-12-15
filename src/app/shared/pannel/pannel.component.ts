@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-info-card',
-  templateUrl: './info-card.component.html',
-  styleUrls: ['./info-card.component.scss']
+  selector: 'app-pannel',
+  templateUrl: './pannel.component.html',
+  styleUrls: ['./pannel.component.scss']
 })
 export class InfoCardComponent implements OnInit {
   @Input('header') header: string;
