@@ -1,5 +1,5 @@
 <div class="card info-block">
-  <div class="card-header">{{header}}</div>
+  <div class="card-header" *ngIf="header">{{header}}</div>
   <div class="card-block">
     <div *ngIf="data;else empty">
       <ng-content></ng-content>

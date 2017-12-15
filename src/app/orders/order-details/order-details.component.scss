@@ -36,4 +36,11 @@ app-pannel {
     line-height: 1em;
     font-weight: 300;
   }
+  .level {
+    display: inline-flex;
+    align-items: center;
+    .label {
+      margin-left: 1em;
+    }
+  }
 }

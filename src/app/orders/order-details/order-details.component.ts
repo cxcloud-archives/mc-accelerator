@@ -39,4 +39,13 @@ export class OrderDetailsComponent implements OnInit {
       });
     });
   }
+
+  getOrderStateClass() {
+    return {
+      Open: 'label-info',
+      Confirmed: 'label-warning',
+      Complete: 'label-success',
+      Cancelled: 'label-error'
+    };
+  }
 }
