@@ -17,7 +17,31 @@
           </div>
         </div>
         <app-info-card header="Order Details"></app-info-card>
-        <app-info-card header="Customer"></app-info-card>
+        <app-info-card header="Customer">
+          <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <app-basic-card header="Details" data="customer">
+                <p>{{customer?.firstName}} {{customer?.lastName}}</p>
+                <p>{{customer?.email}}</p>
+                <p>{{customer?.phone}}</p>
+              </app-basic-card>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <app-basic-card header="Shipping Address" data="customer">
+                <p>{{shippingAddress?.streetName}} {{shippingAddress?.additionalAddressInfo}}</p>
+                <p>{{shippingAddress?.postalCode}} {{shippingAddress?.city}}</p>
+                <p>{{shippingAddress?.country}} {{billingAddress?.region}}</p>
+              </app-basic-card>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <app-basic-card header="Billing Address" data="customer">
+                <p>{{billingAddress?.streetName}} {{billingAddress?.additionalAddressInfo}}</p>
+                <p>{{billingAddress?.postalCode}} {{billingAddress?.city}}</p>
+                <p>{{billingAddress?.country}} {{billingAddress?.region}}</p>
+              </app-basic-card>
+            </div>
+          </div>
+        </app-info-card>
         <app-info-card header="Order Items"></app-info-card>
       </clr-tab-content>
     </clr-tab>

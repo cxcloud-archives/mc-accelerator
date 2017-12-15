@@ -7,6 +7,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { CurrentUserService } from './auth/current-user.service';
 import { AuthService } from './auth/auth.service';
 import { OrderService } from './order/order.service';
+import { CustomerService } from './customer/customer.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
@@ -19,6 +20,7 @@ import { OrderService } from './order/order.service';
       useClass: AuthInterceptor,
       multi: true
     },
+    CustomerService,
     OrderService,
     AuthService
   ]

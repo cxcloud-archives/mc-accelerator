@@ -1,0 +1,10 @@
+<div class="card info-block">
+  <div class="card-header">{{header}}</div>
+  <div class="card-block">
+    <div *ngIf="data;else empty">
+      <ng-content></ng-content>
+
+    </div>
+    <ng-template #empty>No information</ng-template>
+  </div>
+</div>

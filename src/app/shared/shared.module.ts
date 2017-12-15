@@ -6,8 +6,9 @@ import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
 
 import { InfoCardComponent } from './info-card/info-card.component';
+import { BasicCardComponent } from './basic-card/basic-card.component';
 
-const DECLARATIONS = [InfoCardComponent];
+const DECLARATIONS = [InfoCardComponent, BasicCardComponent];
 
 @NgModule({
   imports: [

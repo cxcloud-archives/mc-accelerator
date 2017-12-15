@@ -24,3 +24,16 @@
     color: $grey;
   }
 }
+
+.card.info-block {
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+app-info-card {
+  p {
+    margin-top: 1em;
+    line-height: 1em;
+    font-weight: 300;
+  }
+}
