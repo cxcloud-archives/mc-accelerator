@@ -5,15 +5,39 @@
       <button clrTabLink id="link1">Approve Order</button>
       <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
         <app-pannel header="Order Details">
-          <app-info-box data="order">
-            <p class="level">Order status:
-              <span class="label" [ngClass]="getOrderStateClass()[order?.orderState]">
-                {{order?.orderState}}
-              </span>
-            </p>
-            <p>Date created: {{order?.createdAt | date:'medium'}}</p>
-            <p>Date modified: {{order?.lastModifiedAt | date:'medium'}}</p>
-          </app-info-box>
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <app-info-box data="order">
+                <p class="level">Order status:
+                  <span class="label" [ngClass]="getOrderStateClass()[order?.orderState]">
+                    {{order?.orderState}}
+                  </span>
+                </p>
+                <p>Date created: {{order?.createdAt | date:'medium'}}</p>
+                <p>Date modified: {{order?.lastModifiedAt | date:'medium'}}</p>
+              </app-info-box>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <app-info-box data="order">
+                <div class="row total">
+                  <div class="col-xs-6">Subtotal without discount: </div>
+                  <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalNet.centAmount | currency: order?.taxedPrice.totalNet.currencyCode}}</div>
+                </div>
+                <div class="row tax">
+                  <div class="col-xs-6">{{100 * order?.taxedPrice.taxPortions[0].rate}}% {{order?.taxedPrice.taxPortions[0].name}}:</div>
+                  <div class="col-xs-6">{{0.01 * order?.taxedPrice.taxPortions[0].amount.centAmount | currency: order?.taxedPrice.taxPortions[0].amount.currencyCode}}</div>
+                </div>
+                <div class="row total">
+                  <div class="col-xs-6">Subtotal (gross):</div>
+                  <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalGross.centAmount | currency: order?.taxedPrice.totalGross.currencyCode}}</div>
+                </div>
+                <div class="row total total-gross">
+                  <div class="col-xs-6">Total (gross):</div>
+                  <div class="col-xs-6">{{0.01 * order?.totalPrice.centAmount | currency: order?.totalPrice.currencyCode}}</div>
+                </div>
+              </app-info-box>
+            </div>
+          </div>
         </app-pannel>
         <app-pannel header="Customer">
           <div class="row">
@@ -40,7 +64,48 @@
             </div>
           </div>
         </app-pannel>
-        <app-pannel header="Order Items"></app-pannel>
+        <app-pannel header="Order Items">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit price</th>
+                <th>Discount</th>
+                <th>Net Total</th>
+                <th>Tax %</th>
+                <th>Tax Amount</th>
+                <th>Gross Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pd of order?.lineItems; let i = index">
+                <td>{{i + 1}}</td>
+                <td class="left">
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <img src={{pd.variant.images[0].url}} width="70%">
+                    </div>
+                    <div class="col-xs-6 pd-info">
+                      <div>
+                        <div>{{pd.name.en}}</div>
+                        <div>{{pd.variant.sku}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>{{pd.quantity}}</td>
+                <td>{{0.01 * pd.price.value.centAmount | currency: pd.price.value.currencyCode}}</td>
+                <td>{{0 | currency: pd.price.value.currencyCode}}</td>
+                <td>{{0.01 * pd.taxedPrice.totalNet.centAmount | currency: pd.taxedPrice.totalNet.currencyCode}}</td>
+                <td>{{100 * pd.taxRate.amount}}</td>
+                <td>{{0.01 * (pd.taxRate.amount * pd.taxedPrice.totalNet.centAmount) | currency: pd.price.value.currencyCode}}</td>
+                <td>{{0.01 * pd.taxedPrice.totalGross.centAmount | currency: pd.taxedPrice.totalGross.currencyCode}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </app-pannel>
       </clr-tab-content>
     </clr-tab>
     <clr-tab>
