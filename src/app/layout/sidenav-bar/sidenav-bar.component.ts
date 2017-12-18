@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavBarComponent implements OnInit {
   sideMenu: Array<any> = [
-    { title: 'Dashboard', icon: 'mdi mdi-speedometer', link: '/' },
+    { title: 'Dashboard', icon: 'mdi mdi-speedometer', link: '/home' },
     {
       title: 'Orders',
       icon: 'mdi mdi-cart-outline',
