@@ -11,17 +11,17 @@ export class SidenavBarComponent implements OnInit {
     {
       title: 'Orders',
       icon: 'mdi mdi-cart-outline',
-      link: './orders'
+      link: '/orders'
     },
     {
       title: 'Customers',
       icon: 'mdi mdi-account-multiple-outline',
-      link: './customers'
+      link: '/customers'
     },
     {
       title: 'Reports',
       icon: 'mdi mdi-calendar-check',
-      link: './reports'
+      link: '/reports'
     }
   ];
   constructor() {}

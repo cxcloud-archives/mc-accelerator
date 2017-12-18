@@ -6,62 +6,52 @@
       <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
         <app-pannel header="Order Details">
           <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-              <app-info-box data="order">
-                <p class="level">Order status:
-                  <span class="label" [ngClass]="getOrderStateClass()[order?.orderState]">
-                    {{order?.orderState}}
-                  </span>
-                </p>
-                <p>Date created: {{order?.createdAt | date:'medium'}}</p>
-                <p>Date modified: {{order?.lastModifiedAt | date:'medium'}}</p>
-              </app-info-box>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-              <app-info-box data="order">
-                <div class="row total">
-                  <div class="col-xs-6">Subtotal without discount: </div>
-                  <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalNet.centAmount | currency: order?.taxedPrice.totalNet.currencyCode}}</div>
-                </div>
-                <div class="row tax">
-                  <div class="col-xs-6">{{100 * order?.taxedPrice.taxPortions[0].rate}}% {{order?.taxedPrice.taxPortions[0].name}}:</div>
-                  <div class="col-xs-6">{{0.01 * order?.taxedPrice.taxPortions[0].amount.centAmount | currency: order?.taxedPrice.taxPortions[0].amount.currencyCode}}</div>
-                </div>
-                <div class="row total">
-                  <div class="col-xs-6">Subtotal (gross):</div>
-                  <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalGross.centAmount | currency: order?.taxedPrice.totalGross.currencyCode}}</div>
-                </div>
-                <div class="row total total-gross">
-                  <div class="col-xs-6">Total (gross):</div>
-                  <div class="col-xs-6">{{0.01 * order?.totalPrice.centAmount | currency: order?.totalPrice.currencyCode}}</div>
-                </div>
-              </app-info-box>
-            </div>
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" data="order">
+              <p class="level">Order status:
+                <span class="label" [ngClass]="getOrderStateClass()[order?.orderState]">
+                  {{order?.orderState}}
+                </span>
+              </p>
+              <p>Date created: {{order?.createdAt | date:'medium'}}</p>
+              <p>Date modified: {{order?.lastModifiedAt | date:'medium'}}</p>
+            </app-info-box>
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" data="order">
+              <div class="row total">
+                <div class="col-xs-6">Subtotal without discount: </div>
+                <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalNet.centAmount | currency: order?.taxedPrice.totalNet.currencyCode}}</div>
+              </div>
+              <div class="row tax">
+                <div class="col-xs-6">{{100 * order?.taxedPrice.taxPortions[0].rate}}% {{order?.taxedPrice.taxPortions[0].name}}:</div>
+                <div class="col-xs-6">{{0.01 * order?.taxedPrice.taxPortions[0].amount.centAmount | currency: order?.taxedPrice.taxPortions[0].amount.currencyCode}}</div>
+              </div>
+              <div class="row total">
+                <div class="col-xs-6">Subtotal (gross):</div>
+                <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalGross.centAmount | currency: order?.taxedPrice.totalGross.currencyCode}}</div>
+              </div>
+              <div class="row total total-gross">
+                <div class="col-xs-6">Total (gross):</div>
+                <div class="col-xs-6">{{0.01 * order?.totalPrice.centAmount | currency: order?.totalPrice.currencyCode}}</div>
+              </div>
+            </app-info-box>
           </div>
         </app-pannel>
         <app-pannel header="Customer">
           <div class="row">
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-              <app-info-box header="Details" data="customer">
-                <p>{{customer?.firstName}} {{customer?.lastName}}</p>
-                <p>{{customer?.email}}</p>
-                <p>{{customer?.phone}}</p>
-              </app-info-box>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-              <app-info-box header="Shipping Address" data="customer">
-                <p>{{shippingAddress?.streetName}} {{shippingAddress?.additionalAddressInfo}}</p>
-                <p>{{shippingAddress?.postalCode}} {{shippingAddress?.city}}</p>
-                <p>{{shippingAddress?.country}} {{billingAddress?.region}}</p>
-              </app-info-box>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-              <app-info-box header="Billing Address" data="customer">
-                <p>{{billingAddress?.streetName}} {{billingAddress?.additionalAddressInfo}}</p>
-                <p>{{billingAddress?.postalCode}} {{billingAddress?.city}}</p>
-                <p>{{billingAddress?.country}} {{billingAddress?.region}}</p>
-              </app-info-box>
-            </div>
+            <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Details" data="customer">
+              <p>{{customer?.firstName}} {{customer?.lastName}}</p>
+              <p>{{customer?.email}}</p>
+              <p>{{customer?.phone}}</p>
+            </app-info-box>
+            <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="customer">
+              <p>{{shippingAddress?.streetName}} {{shippingAddress?.additionalAddressInfo}}</p>
+              <p>{{shippingAddress?.postalCode}} {{shippingAddress?.city}}</p>
+              <p>{{shippingAddress?.country}} {{shippingAddress?.region}}</p>
+            </app-info-box>
+            <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Billing Address" data="customer">
+              <p>{{billingAddress?.streetName}} {{billingAddress?.additionalAddressInfo}}</p>
+              <p>{{billingAddress?.postalCode}} {{billingAddress?.city}}</p>
+              <p>{{billingAddress?.country}} {{billingAddress?.region}}</p>
+            </app-info-box>
           </div>
         </app-pannel>
         <app-pannel header="Order Items">
@@ -109,9 +99,41 @@
       </clr-tab-content>
     </clr-tab>
     <clr-tab>
-      <button clrTabLink>Ship Order</button>
+      <button clrTabLink>Shipping and Delivery</button>
       <clr-tab-content *clrIfActive>
-        Ship
+        <app-pannel header="Shipping Details">
+          <div class="row">
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="order">
+              <p>{{order?.shippingAddress.company}}</p>
+              <p>{{order?.shippingAddress.streetName}} {{order?.shippingAddress.additionalAddressInfo}}</p>
+              <p>{{order?.shippingAddress.postalCode}} {{order?.shippingAddress.city}}</p>
+              <p>{{order?.shippingAddress.country}} {{order?.shippingAddress?.region}}</p>
+            </app-info-box>
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Contact" data="customer">
+              <p>Name: {{customer?.firstName}} {{customer?.lastName}}</p>
+              <p>Phone: {{customer?.phone || "-"}}</p>
+              <p>E-mail: {{customer?.email || "-"}}</p>
+            </app-info-box>
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Method">
+            </app-info-box>
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Additional Information">
+            </app-info-box>
+          </div>
+        </app-pannel>
+        <app-pannel header="Ship Order">
+          <div class="row">
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Tracking Code" data="order">
+              <label>Enter tracking code here:</label>
+              <input type="text">
+            </app-info-box>
+            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Estimated time of Arival (ETA)" data="order">
+              <p>ETA dd/mm/yyyy</p>
+            </app-info-box>
+          </div>
+        </app-pannel>
+        <app-pannel header="Deliveries">
+          Currently, there are no Deliveries for this Order.
+        </app-pannel>
       </clr-tab-content>
     </clr-tab>
   </clr-tabs>

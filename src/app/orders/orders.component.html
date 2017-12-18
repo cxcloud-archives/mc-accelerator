@@ -5,7 +5,7 @@
   <ng-container *ngIf="orders">
     <clr-dg-row *clrDgItems="let order of orders.results">
       <clr-dg-cell>
-        <a [routerLink]="['../order', order.id]">{{order.id}}</a>
+        <a [routerLink]="['/orders', order.id]">{{order.id}}</a>
       </clr-dg-cell>
       <clr-dg-cell>{{0.01 * order.totalPrice.centAmount | currency : order.totalPrice.currencyCode : "true"}}</clr-dg-cell>
       <clr-dg-cell>{{order.lineItems.length}}</clr-dg-cell>

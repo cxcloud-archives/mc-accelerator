@@ -2,12 +2,14 @@
 
 section {
   margin-top: 2em;
+
   .nav-link {
     color: $white;
     margin: 0;
     padding: 16px;
     border-radius: 0;
-    &:hover {
+    &:hover,
+    &.active {
       background-color: $limed-spruce;
       color: $yellow;
     }

@@ -33,6 +33,7 @@ export class OrderDetailsComponent implements OnInit {
           this.customer = this.customerService.getCustomer(
             this.order.customerId
           );
+          console.log(this.customer);
           this.shippingAddress = this.customerService.getShippingAddress();
           this.billingAddress = this.customerService.getBillingAddress();
         }
