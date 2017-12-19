@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../core/order/order.service';
+import { Order } from '@cxcloud/ct-types/orders';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  orders: any;
+  constructor(private orderService: OrderService) {}
 
   ngOnInit() {
+    this.orderService.getOrders().subscribe(result => {
+      this.orders = result;
+    });
   }
-
 }

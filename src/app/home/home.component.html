@@ -1,3 +1,36 @@
-<p>
-  home works!
-</p>
+<app-pannel header="Total Sales" icon="mdi-coins">
+  <div class="row">
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Today" data="orders">
+      <div class="amount">{{0 | currency: "EUR"}}</div>
+    </app-info-box>
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="This week" data="orders">
+      <div class="amount">{{0 | currency: "EUR"}}</div>
+    </app-info-box>
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="This month" data="orders">
+      <div class="amount">{{0 | currency: "EUR"}}</div>
+    </app-info-box>
+
+  </div>
+</app-pannel>
+<app-pannel header="Average Order Value" icon="mdi-google-analytics">
+  <div class="row">
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" data="order">
+      <div class="row">
+        <span class="col-xs-3">This week:</span>
+        <span class="col-xs-2 offset-xs-7">{{0 | currency: "EUR"}}</span>
+      </div>
+      <div class="row">
+        <span class="col-xs-3">This month:</span>
+        <span class="col-xs-2 offset-xs-7">{{0 | currency: "EUR"}}</span>
+      </div>
+      <div class="row">
+        <span class="col-xs-3">This year:</span>
+        <span class="col-xs-2 offset-xs-7">{{0 | currency: "EUR"}}</span>
+      </div>
+    </app-info-box>
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Orders in total" data="order">
+      <div>
+        <span class="amount">{{orders?.total}}</span> orders</div>
+    </app-info-box>
+  </div>
+</app-pannel>
