@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { OrdersComponent } from './orders.component';
 import { OrdersRoutingModule } from './orders-routing.module';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { CountryPipe } from '../utils/countries/country.pipe';
 
 const DECLARATIONS = [OrdersComponent, OrderDetailsComponent];
 
@@ -21,7 +22,7 @@ const DECLARATIONS = [OrdersComponent, OrderDetailsComponent];
     OrdersRoutingModule,
     SharedModule
   ],
-  declarations: [...DECLARATIONS],
+  declarations: [...DECLARATIONS, CountryPipe],
   exports: [...DECLARATIONS]
 })
 export class OrdersModule {}
