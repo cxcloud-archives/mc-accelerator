@@ -16,7 +16,7 @@ import { CurrentUserService } from '../core/auth/current-user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  private envs: Array<any> = [
+  envs: Array<any> = [
     { key: 'dev-shop', name: 'Development' },
     { key: 'test-shop', name: 'Testing' },
     { key: 'shop', name: 'Production' }
@@ -51,5 +51,13 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+  }
+  get hasError() {
+    const usernameControl = this.loginForm.get('username');
+    const passwordControl = this.loginForm.get('password');
+    return (
+      usernameControl.invalid ||
+      (!passwordControl.pristine && passwordControl.invalid)
+    );
   }
 }

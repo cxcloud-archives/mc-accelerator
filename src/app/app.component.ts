@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private currentUserService: CurrentUserService
+    public currentUserService: CurrentUserService
   ) {}
 
   ngOnInit() {
