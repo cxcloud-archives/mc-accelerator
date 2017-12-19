@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     const usernameControl = this.loginForm.get('username');
     const passwordControl = this.loginForm.get('password');
     return (
-      usernameControl.invalid ||
+      (!usernameControl.pristine && usernameControl.invalid) ||
       (!passwordControl.pristine && passwordControl.invalid)
     );
   }

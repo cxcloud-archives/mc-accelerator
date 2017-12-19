@@ -11,6 +11,8 @@ import { LayoutModule } from './layout/layout.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { OrdersModule } from './orders/orders.module';
+import { CustomersModule } from './customers/customers.module';
+import { ReportsModule } from './reports/reports.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,8 @@ import { OrdersModule } from './orders/orders.module';
     HomeModule,
     LoginModule,
     OrdersModule,
+    CustomersModule,
+    ReportsModule,
     AppRoutingModule
   ],
   providers: [],
