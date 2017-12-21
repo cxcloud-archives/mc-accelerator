@@ -8,9 +8,7 @@
           <div class="row">
             <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" data="order">
               <p class="level">Order status:
-                <span class="label" [ngClass]="getOrderStateClass()[order?.orderState]">
-                  {{order?.orderState}}
-                </span>
+                <app-order-status [order]="order"></app-order-status>
               </p>
               <p>Date created: {{order?.createdAt | date:'medium'}}</p>
               <p>Date modified: {{order?.lastModifiedAt | date:'medium'}}</p>
