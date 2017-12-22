@@ -1,15 +1,17 @@
 <div class="dropdown bottom-right" [ngClass]="{'open': isActive}" *ngIf="dropdown; else label">
-  <a *ngIf="order" class="label" [ngClass]="state.label" (click)="toggleDropdownList();">
-    {{state.message}}
+  <a *ngIf="order" class="label" [ngClass]="currentState.label" (click)="toggleDropdownList();">
+    {{currentState.message}}
     <clr-icon shape="caret down"></clr-icon>
   </a>
   <div class="dropdown-menu">
-    <button type="button" class="dropdown-item" *ngFor="let state of stateList" (click)="updateState(state);">{{state.text}}</button>
+    <button type="button" class="dropdown-item" *ngFor="let state of stateList" (click)="updateState(state);">
+      {{state.text}}
+    </button>
   </div>
 </div>
 
 <ng-template #label>
-  <span *ngIf="order" class="label" [ngClass]="state.label">
-    {{state.message}}
+  <span *ngIf="order" class="label" [ngClass]="currentState.label">
+    {{currentState.message}}
   </span>
 </ng-template>

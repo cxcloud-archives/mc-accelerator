@@ -10,23 +10,25 @@
         </div>
 
         <app-pannel header="Order Details">
-
           <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <app-info-box data="order">
-                <p class="level">Order status:
-                  <app-order-status [order]="order" about="order" [dropdown]="true"></app-order-status>
-                </p>
+                <div class="row">
+                  <div class="col-xs-5">Order status:</div>
+                  <app-order-status class="col-xs-5" [order]="order" about="order" [dropdown]="true"></app-order-status>
+                </div>
               </app-info-box>
               <app-info-box data="order">
-                <p class="level">Shippment status:
-                  <app-order-status [order]="order" about="shipment"></app-order-status>
-                </p>
+                <div class="row">
+                  <div class="col-xs-5">Shippment status:</div>
+                  <app-order-status class="col-xs-5" [order]="order" about="shipment" [dropdown]="true"></app-order-status>
+                </div>
               </app-info-box>
               <app-info-box data="order">
-                <p class="level">Payment status:
-                  <app-order-status [order]="order" about="payment"></app-order-status>
-                </p>
+                <div class="row">
+                  <div class="col-xs-5">Payment status:</div>
+                  <app-order-status class="col-xs-5" [order]="order" about="payment" [dropdown]="true"></app-order-status>
+                </div>
               </app-info-box>
             </div>
 

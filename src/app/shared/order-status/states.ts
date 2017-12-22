@@ -51,11 +51,6 @@ export const PAYMENT_STATES = [
 
 export const SHIPMENT_STATES = [
   {
-    state: 'Ready',
-    text: 'Ready',
-    color: 'info'
-  },
-  {
     state: 'Partial',
     text: 'Partial',
     color: 'info'

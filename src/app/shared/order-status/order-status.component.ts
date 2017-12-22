@@ -11,60 +11,63 @@ export class OrderStatusComponent implements OnInit {
   @Input() about: string;
   @Input() dropdown = false;
 
-  stateList = ORDER_STATES;
-  isActive = false;
-
+  private _receivedState: string;
   private _status: any;
+  isActive = false;
 
   constructor() {}
 
   ngOnInit() {}
 
-  get state() {
+  get stateList() {
+    if (this.order) {
+      if (this.about === 'order') {
+        this._receivedState = this.order.orderState;
+        return ORDER_STATES;
+      }
+      if (this.about === 'shipment') {
+        this._receivedState = this.order.shipmentState;
+        return SHIPMENT_STATES;
+      }
+      if (this.about === 'payment') {
+        this._receivedState = this.order.paymentState;
+        return PAYMENT_STATES;
+      }
+    }
+  }
+
+  get currentState() {
     if (this._status) {
       return this._status;
     }
-
-    if (this.about === 'order') {
-      this._status = this.getCurrentStatus(ORDER_STATES, this.order.orderState);
-    }
-    if (this.about === 'shipment') {
-      this._status = this.getCurrentStatus(
-        SHIPMENT_STATES,
-        this.order.shipmentState
-      );
-    }
-    if (this.about === 'payment') {
-      this._status = this.getCurrentStatus(
-        PAYMENT_STATES,
-        this.order.paymentState
-      );
-    }
-    return this._status;
+    return (this._status = this.getStatusProperties(
+      this.stateList,
+      this._receivedState
+    ));
   }
 
-  set state(status: any) {
+  set currentState(status: any) {
     this._status = {
       label: `label-${status.color}`,
       message: status.text
     };
   }
 
-  getCurrentStatus(stateList, state) {
-    const currentState = stateList.filter(s => s.state === state)[0];
+  getStatusProperties(stateList, currentState) {
+    const state = stateList.filter(s => s.state === currentState)[0];
     return {
-      label: `label-${currentState.color}`,
-      message: currentState.text
+      label: `label-${state.color}`,
+      message: state.text
     };
   }
 
-  toggleDropdownList() {
-    this.isActive = !this.isActive;
-    return this.isActive;
+  updateState(state) {
+    /* TODO: Add Api call to updated status */
+    this.isActive = false;
+    this.currentState = { ...state };
   }
 
-  updateState(state) {
-    this.isActive = false;
-    this.state = { ...state };
+  toggleDropdownList() {
+    return (this.isActive = !this.isActive);
   }
 }
