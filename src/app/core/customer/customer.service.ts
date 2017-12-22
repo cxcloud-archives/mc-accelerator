@@ -8,22 +8,6 @@ export class CustomerService {
   public customer = new BehaviorSubject<Customer>(null);
   constructor() {}
 
-  // createOrder(cart: Cart) {
-  //   return this.http
-  //     .post<Order>(`/orders`, {
-  //       cartId: cart.id,
-  //       cartVersion: cart.version
-  //     })
-  //     .do(order => {
-  //       this.order.next(order);
-  //       this.cartService.createCart();
-  //     });
-  // }
-
-  // getOrder() {
-  //   return this.order.getValue();
-  // }
-
   getCustomersList() {
     return CUSTOMERS;
   }
