@@ -16,6 +16,7 @@ export class OrderDetailsComponent implements OnInit {
   customer: any;
   shippingAddress: Address;
   billingAddress: Address;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -39,14 +40,5 @@ export class OrderDetailsComponent implements OnInit {
         }
       });
     });
-  }
-
-  getOrderStateClass() {
-    return {
-      Open: 'label-info',
-      Confirmed: 'label-warning',
-      Complete: 'label-success',
-      Cancelled: 'label-error'
-    };
   }
 }
