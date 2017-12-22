@@ -8,11 +8,13 @@ import { ClarityModule } from 'clarity-angular';
 import { InfoCardComponent } from './pannel/pannel.component';
 import { BasicCardComponent } from './info-box/info-box.component';
 import { OrderStatusComponent } from './order-status/order-status.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 const DECLARATIONS = [
   InfoCardComponent,
   BasicCardComponent,
-  OrderStatusComponent
+  OrderStatusComponent,
+  OrderSummaryComponent
 ];
 
 @NgModule({

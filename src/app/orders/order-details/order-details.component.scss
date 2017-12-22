@@ -17,17 +17,17 @@
   }
 }
 
-.tab-content {
-  .date {
-    margin-top: 1em;
-    font-size: 12px;
-    color: $grey;
+// .tab-content {
+//   .date {
+//     margin-top: 1em;
+//     font-size: 12px;
+//     color: $grey;
 
-    .text-align-end {
-      text-align: end;
-    }
-  }
-}
+//     .text-align-end {
+//       text-align: end;
+//     }
+//   }
+// }
 
 .card.info-block {
   box-shadow: none;
@@ -45,18 +45,5 @@ app-pannel {
     line-height: 1.5em;
     display: inline-flex;
     align-items: center;
-  }
-
-  .total {
-    font-weight: 800;
-    &.total-gross {
-      font-size: 1.2em;
-      border-top: 1px solid $light-grey;
-      padding-top: 10px;
-      margin-top: 5px;
-    }
-  }
-  .tax {
-    color: $silver;
   }
 }
