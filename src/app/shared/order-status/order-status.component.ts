@@ -54,10 +54,16 @@ export class OrderStatusComponent implements OnInit {
   }
 
   getStatusProperties(stateList, currentState) {
-    const state = stateList.filter(s => s.state === currentState)[0];
+    if (currentState) {
+      const state = stateList.filter(s => s.state === currentState)[0];
+      return {
+        label: `label-${state.color}`,
+        message: state.text
+      };
+    }
     return {
-      label: `label-${state.color}`,
-      message: state.text
+      label: '',
+      message: 'Select...'
     };
   }
 
