@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { InfoCardComponent } from './pannel/pannel.component';
 import { BasicCardComponent } from './info-box/info-box.component';
@@ -21,7 +22,8 @@ const DECLARATIONS = [
     FormsModule,
     RouterModule,
     HttpModule,
-    ClarityModule.forRoot()
+    ClarityModule.forRoot(),
+    ClickOutsideModule
   ],
   declarations: [...DECLARATIONS],
   exports: [...DECLARATIONS]

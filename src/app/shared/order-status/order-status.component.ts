@@ -68,6 +68,12 @@ export class OrderStatusComponent implements OnInit {
   }
 
   toggleDropdownList() {
-    return (this.isActive = !this.isActive);
+    this.isActive = !this.isActive;
+  }
+
+  onClickedOutside() {
+    if (this.isActive) {
+      this.isActive = false;
+    }
   }
 }
