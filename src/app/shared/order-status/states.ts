@@ -17,7 +17,7 @@ export const ORDER_STATES = [
   {
     state: 'Canceled',
     text: 'Canceled',
-    color: 'error'
+    color: 'danger'
   }
 ];
 
@@ -45,16 +45,11 @@ export const PAYMENT_STATES = [
   {
     state: 'Failed',
     text: 'Failed',
-    color: 'error'
+    color: 'danger'
   }
 ];
 
 export const SHIPMENT_STATES = [
-  {
-    state: 'Ready',
-    text: 'Ready',
-    color: 'info'
-  },
   {
     state: 'Partial',
     text: 'Partial',
@@ -78,6 +73,6 @@ export const SHIPMENT_STATES = [
   {
     state: 'Delayed',
     text: 'Delayed',
-    color: 'error'
+    color: 'danger'
   }
 ];

@@ -9,8 +9,8 @@
       </clr-dg-cell>
       <clr-dg-cell>{{0.01 * order.totalPrice.centAmount | currency : order.totalPrice.currencyCode : "true"}}</clr-dg-cell>
       <clr-dg-cell>{{order.lineItems.length}}</clr-dg-cell>
-      <clr-dg-cell>
-        <app-order-status [order]="order"></app-order-status>
+      <clr-dg-cell class="status">
+        <app-order-status [order]="order" about="order"></app-order-status>
       </clr-dg-cell>
       <clr-dg-cell>{{order.createdAt | date}}</clr-dg-cell>
       <clr-dg-cell>{{order.customerEmail}}</clr-dg-cell>

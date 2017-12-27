@@ -3,3 +3,9 @@
 .title {
   font-size: 2em;
 }
+
+.datagrid-cell {
+  &.status {
+    text-align: center;
+  }
+}
