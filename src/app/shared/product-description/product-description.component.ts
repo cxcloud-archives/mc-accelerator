@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '@cxcloud/ct-types/products';
+import { LineItem } from '@cxcloud/ct-types/carts';
 
 @Component({
   selector: 'app-product-description',
@@ -7,7 +7,7 @@ import { Product } from '@cxcloud/ct-types/products';
   styleUrls: ['./product-description.component.scss']
 })
 export class ProductDescriptionComponent implements OnInit {
-  @Input() product: Product;
+  @Input() item: LineItem;
 
   constructor() {}
 

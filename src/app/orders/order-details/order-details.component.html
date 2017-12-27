@@ -46,7 +46,7 @@
               <tr *ngFor="let pd of order?.lineItems; let i = index">
                 <td>{{i + 1}}</td>
                 <td class="left">
-                  <app-product-description [product]="pd"></app-product-description>
+                  <app-product-description [item]="pd"></app-product-description>
                 </td>
                 <td>{{pd.quantity}}</td>
                 <td>{{0.01 * pd.price.value.centAmount | currency: pd.price.value.currencyCode}}</td>
