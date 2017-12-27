@@ -1,4 +1,4 @@
-<h1 class="title">Manage Order #{{order?.id}}</h1>
+<h1 class="title">Manage Order No.{{order?.id}}</h1>
 <div class="tabs">
   <clr-tabs>
     <clr-tab>
@@ -31,7 +31,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th>#</th>
+                <th>No.</th>
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Unit price</th>
@@ -46,17 +46,7 @@
               <tr *ngFor="let pd of order?.lineItems; let i = index">
                 <td>{{i + 1}}</td>
                 <td class="left">
-                  <div class="row">
-                    <div class="col-xs-2">
-                      <img src={{pd.variant.images[0].url}} width="70%">
-                    </div>
-                    <div class="col-xs-6 pd-info">
-                      <div>
-                        <div>{{pd.name.en}}</div>
-                        <div>{{pd.variant.sku}}</div>
-                      </div>
-                    </div>
-                  </div>
+                  <app-product-description [product]="pd"></app-product-description>
                 </td>
                 <td>{{pd.quantity}}</td>
                 <td>{{0.01 * pd.price.value.centAmount | currency: pd.price.value.currencyCode}}</td>
