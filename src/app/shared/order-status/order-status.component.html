@@ -1,5 +1,5 @@
 <div class="dropdown bottom-right" [ngClass]="{'open': isActive}" *ngIf="dropdown; else label">
-  <a *ngIf="order" class="label" [ngClass]="currentState.label" (click)="toggleDropdownList();">
+  <a *ngIf="order" class="label" [ngClass]="currentState.label" (click)="toggleDropdownList();" (clickOutside)="onClickedOutside()">
     {{currentState.message}}
     <clr-icon shape="caret down"></clr-icon>
   </a>
@@ -11,7 +11,7 @@
 </div>
 
 <ng-template #label>
-  <span *ngIf="order" class="label" [ngClass]="currentState.label">
+  <span *ngIf="order" class="label" [ngClass]="currentState.label" (clickOutside)="onClickedOutside()">
     {{currentState.message}}
   </span>
 </ng-template>
