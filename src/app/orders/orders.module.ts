@@ -11,10 +11,12 @@ import { OrderComponent } from './order/order.component';
 import { CountryPipe } from '../utils/countries/country.pipe';
 import { OrderApproveComponent } from './order/order-approve/order-approve.component';
 import { OrderDeliveryComponent } from './order/order-delivery/order-delivery.component';
+import { OrderSummaryComponent } from './order/order-summary/order-summary.component';
 
 const DECLARATIONS = [
   OrdersComponent,
   OrderComponent,
+  OrderSummaryComponent,
   OrderApproveComponent,
   OrderDeliveryComponent
 ];

@@ -9,14 +9,12 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { InfoCardComponent } from './pannel/pannel.component';
 import { BasicCardComponent } from './info-box/info-box.component';
 import { OrderStatusComponent } from './order-status/order-status.component';
-import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 
 const DECLARATIONS = [
   InfoCardComponent,
   BasicCardComponent,
   OrderStatusComponent,
-  OrderSummaryComponent,
   ProductDescriptionComponent
 ];
 
