@@ -9,8 +9,15 @@ import { OrdersComponent } from './orders.component';
 import { OrdersRoutingModule } from './orders-routing.module';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { CountryPipe } from '../utils/countries/country.pipe';
+import { ApproveComponent } from './order-details/approve/approve.component';
+import { DeliveryComponent } from './order-details/delivery/delivery.component';
 
-const DECLARATIONS = [OrdersComponent, OrderDetailsComponent];
+const DECLARATIONS = [
+  OrdersComponent,
+  OrderDetailsComponent,
+  ApproveComponent,
+  DeliveryComponent
+];
 
 @NgModule({
   imports: [

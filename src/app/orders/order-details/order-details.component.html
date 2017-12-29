@@ -1,134 +1,21 @@
 <h1 class="title">Manage Order No.{{order?.id}}</h1>
 <div class="tabs">
   <clr-tabs>
+    <!--Approve order tab -->
     <clr-tab>
       <button clrTabLink id="link1">Approve Order</button>
       <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
-
-        <!-- Order summary (incl dates) -->
         <app-order-summary [order]="order"></app-order-summary>
-
-        <app-pannel header="Customer">
-          <div class="row">
-            <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Details" data="customer">
-              <p>{{customer?.firstName}} {{customer?.lastName}}</p>
-              <p>{{customer?.email}}</p>
-              <p>{{customer?.phone}}</p>
-            </app-info-box>
-            <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="customer">
-              <p>{{shippingAddress?.streetName}} {{shippingAddress?.additionalAddressInfo}}</p>
-              <p>{{shippingAddress?.postalCode}} {{shippingAddress?.city}}</p>
-              <p>{{shippingAddress?.country | country}} {{shippingAddress?.region}}</p>
-            </app-info-box>
-            <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Billing Address" data="customer">
-              <p>{{billingAddress?.streetName}} {{billingAddress?.additionalAddressInfo}}</p>
-              <p>{{billingAddress?.postalCode}} {{billingAddress?.city}}</p>
-              <p>{{billingAddress?.country | country}} {{billingAddress?.region}}</p>
-            </app-info-box>
-          </div>
-        </app-pannel>
-        <app-pannel header="Order Items">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Unit price</th>
-                <th>Discount</th>
-                <th>Net Total</th>
-                <th>Tax %</th>
-                <th>Tax Amount</th>
-                <th>Gross Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let pd of order?.lineItems; let i = index">
-                <td>{{i + 1}}</td>
-                <td class="left">
-                  <app-product-description [item]="pd"></app-product-description>
-                </td>
-                <td>{{pd.quantity}}</td>
-                <td>{{0.01 * pd.price.value.centAmount | currency: pd.price.value.currencyCode}}</td>
-                <td>{{0 | currency: pd.price.value.currencyCode}}</td>
-                <td>{{0.01 * pd.taxedPrice.totalNet.centAmount | currency: pd.taxedPrice.totalNet.currencyCode}}</td>
-                <td>{{100 * pd.taxRate.amount}}</td>
-                <td>{{0.01 * (pd.taxRate.amount * pd.taxedPrice.totalNet.centAmount) | currency: pd.price.value.currencyCode}}</td>
-                <td>{{0.01 * pd.taxedPrice.totalGross.centAmount | currency: pd.taxedPrice.totalGross.currencyCode}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </app-pannel>
+        <app-approve [order]="order" [customer]="customer" [shippingAddress]="shippingAddress" [billingAddress]="billingAddress"></app-approve>
       </clr-tab-content>
     </clr-tab>
+
     <!--Shipping and delivery tab -->
     <clr-tab>
       <button clrTabLink>Shipping and Delivery</button>
       <clr-tab-content *clrIfActive>
-
-        <!-- Order summary (incl dates) -->
         <app-order-summary [order]="order"></app-order-summary>
-
-        <app-pannel header="Shipping Details">
-          <div class="row">
-            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="order">
-              <p>{{order?.shippingAddress.company}}</p>
-              <p>{{order?.shippingAddress.streetName}} {{order?.shippingAddress.additionalAddressInfo}}</p>
-              <p>{{order?.shippingAddress.postalCode}} {{order?.shippingAddress.city}},</p>
-              <p>{{order?.shippingAddress.country | country}} {{order?.shippingAddress?.region}}</p>
-            </app-info-box>
-            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Contact" data="customer">
-              <p>Name: {{customer?.firstName}} {{customer?.lastName}}</p>
-              <p>Phone: {{customer?.phone || "-"}}</p>
-              <p>E-mail: {{customer?.email || "-"}}</p>
-            </app-info-box>
-            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Method" data="order">
-              {{order?.shippingInfo.shippingMethodName}}
-            </app-info-box>
-            <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Additional Information">
-            </app-info-box>
-          </div>
-        </app-pannel>
-        <app-pannel header="Deliveries">
-          <div *ngIf="deliveries?.length > 0; else nodelivery">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Date</th>
-                  <th>Product</th>
-                  <th>Quantity</th>
-                  <th>Parcel</th>
-
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let delivery of deliveries; let i = index">
-                  <td>{{i + 1}}</td>
-                  <td>{{delivery.createdAt | date :'medium'}}</td>
-                  <td>
-                    <tr *ngFor="let item of getDeliveryItems(delivery.id)">
-                      <td>
-                        <app-product-description [item]="item"></app-product-description>
-                      </td>
-                    </tr>
-                  </td>
-                  <td>
-                    <tr *ngFor="let item of getDeliveryItems(delivery.id)">
-                      <td>
-                        {{item.quantity}}
-                      </td>
-                    </tr>
-                  </td>
-                  <td>{{delivery.parcels.length}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <ng-template #nodelivery>
-            Currently, there are no Deliveries for this Order.
-          </ng-template>
-        </app-pannel>
+        <app-delivery [order]="order" [customer]="customer"></app-delivery>
       </clr-tab-content>
     </clr-tab>
   </clr-tabs>

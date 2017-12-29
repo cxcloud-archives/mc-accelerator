@@ -1,0 +1,60 @@
+<app-pannel header="Shipping Details">
+  <div class="row">
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="order">
+      <p>{{order?.shippingAddress.company}}</p>
+      <p>{{order?.shippingAddress.streetName}} {{order?.shippingAddress.additionalAddressInfo}}</p>
+      <p>{{order?.shippingAddress.postalCode}} {{order?.shippingAddress.city}},</p>
+      <p>{{order?.shippingAddress.country | country}} {{order?.shippingAddress?.region}}</p>
+    </app-info-box>
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Contact" data="customer">
+      <p>Name: {{customer?.firstName}} {{customer?.lastName}}</p>
+      <p>Phone: {{customer?.phone || "-"}}</p>
+      <p>E-mail: {{customer?.email || "-"}}</p>
+    </app-info-box>
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Method" data="order">
+      {{order?.shippingInfo.shippingMethodName}}
+    </app-info-box>
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Additional Information">
+    </app-info-box>
+  </div>
+</app-pannel>
+<app-pannel header="Deliveries">
+  <div *ngIf="deliveries?.length > 0; else nodelivery">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Date</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Parcel</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let delivery of deliveries; let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{delivery.createdAt | date :'medium'}}</td>
+          <td>
+            <tr *ngFor="let item of getDeliveryItems(delivery.id)">
+              <td>
+                <app-product-description [item]="item"></app-product-description>
+              </td>
+            </tr>
+          </td>
+          <td>
+            <tr *ngFor="let item of getDeliveryItems(delivery.id)">
+              <td>
+                {{item.quantity}}
+              </td>
+            </tr>
+          </td>
+          <td>{{delivery.parcels.length}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #nodelivery>
+    Currently, there are no Deliveries for this Order.
+  </ng-template>
+</app-pannel>

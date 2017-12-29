@@ -22,11 +22,7 @@
   border-radius: 5px;
 }
 
-table td {
-  vertical-align: middle;
-}
-
-app-pannel {
+/deep/ app-pannel {
   p {
     margin-top: 1em;
     line-height: 1em;
