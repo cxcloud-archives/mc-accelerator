@@ -6,7 +6,7 @@
       <button clrTabLink id="link1">Approve Order</button>
       <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
         <app-order-summary [order]="order"></app-order-summary>
-        <app-approve [order]="order" [customer]="customer" [shippingAddress]="shippingAddress" [billingAddress]="billingAddress"></app-approve>
+        <app-order-approve [order]="order" [customer]="customer" [shippingAddress]="shippingAddress" [billingAddress]="billingAddress"></app-order-approve>
       </clr-tab-content>
     </clr-tab>
 

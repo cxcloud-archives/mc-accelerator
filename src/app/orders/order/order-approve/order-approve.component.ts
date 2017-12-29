@@ -4,11 +4,11 @@ import { Customer } from '@cxcloud/ct-types/customers';
 import { Address } from '@cxcloud/ct-types/common';
 
 @Component({
-  selector: 'app-approve',
-  templateUrl: './approve.component.html',
-  styleUrls: ['./approve.component.scss']
+  selector: 'app-order-approve',
+  templateUrl: './order-approve.component.html',
+  styleUrls: ['./order-approve.component.scss']
 })
-export class ApproveComponent implements OnInit {
+export class OrderApproveComponent implements OnInit {
   @Input('order') order: Order;
   @Input('customer') customer: Customer;
   @Input('shippingAddress') shippingAddress: Address;
