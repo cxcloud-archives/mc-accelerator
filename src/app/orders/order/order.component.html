@@ -1,0 +1,22 @@
+<h1 class="title">Manage Order No.{{order?.id}}</h1>
+<div class="tabs">
+  <clr-tabs>
+    <!--Approve order tab -->
+    <clr-tab>
+      <button clrTabLink id="link1">Approve Order</button>
+      <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
+        <app-order-summary [order]="order"></app-order-summary>
+        <app-order-approve [order]="order" [customer]="customer" [shippingAddress]="shippingAddress" [billingAddress]="billingAddress"></app-order-approve>
+      </clr-tab-content>
+    </clr-tab>
+
+    <!--Shipping and delivery tab -->
+    <clr-tab>
+      <button clrTabLink>Shipping and Delivery</button>
+      <clr-tab-content *clrIfActive>
+        <app-order-summary [order]="order"></app-order-summary>
+        <app-order-delivery [order]="order" [customer]="customer"></app-order-delivery>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
+</div>

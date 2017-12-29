@@ -22,16 +22,10 @@
   border-radius: 5px;
 }
 
-app-pannel {
+/deep/ app-pannel {
   p {
     margin-top: 1em;
     line-height: 1em;
     font-weight: 300;
-  }
-
-  .pd-info {
-    line-height: 1.5em;
-    display: inline-flex;
-    align-items: center;
   }
 }

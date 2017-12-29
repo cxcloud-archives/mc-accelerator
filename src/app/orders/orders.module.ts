@@ -7,10 +7,19 @@ import { ClarityModule } from 'clarity-angular';
 import { SharedModule } from '../shared/shared.module';
 import { OrdersComponent } from './orders.component';
 import { OrdersRoutingModule } from './orders-routing.module';
-import { OrderDetailsComponent } from './order-details/order-details.component';
+import { OrderComponent } from './order/order.component';
 import { CountryPipe } from '../utils/countries/country.pipe';
+import { OrderApproveComponent } from './order/order-approve/order-approve.component';
+import { OrderDeliveryComponent } from './order/order-delivery/order-delivery.component';
+import { OrderSummaryComponent } from './order/order-summary/order-summary.component';
 
-const DECLARATIONS = [OrdersComponent, OrderDetailsComponent];
+const DECLARATIONS = [
+  OrdersComponent,
+  OrderComponent,
+  OrderSummaryComponent,
+  OrderApproveComponent,
+  OrderDeliveryComponent
+];
 
 @NgModule({
   imports: [

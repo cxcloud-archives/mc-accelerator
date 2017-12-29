@@ -1,0 +1,50 @@
+<app-pannel header="Customer">
+  <div class="row">
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Details" data="customer">
+      <p>{{customer?.firstName}} {{customer?.lastName}}</p>
+      <p>{{customer?.email}}</p>
+    </app-info-box>
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="customer">
+      <p>{{shippingAddress?.streetName}} {{shippingAddress?.additionalAddressInfo}}</p>
+      <p>{{shippingAddress?.postalCode}} {{shippingAddress?.city}}</p>
+      <p>{{shippingAddress?.country | country}} {{shippingAddress?.region}}</p>
+    </app-info-box>
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Billing Address" data="customer">
+      <p>{{billingAddress?.streetName}} {{billingAddress?.additionalAddressInfo}}</p>
+      <p>{{billingAddress?.postalCode}} {{billingAddress?.city}}</p>
+      <p>{{billingAddress?.country | country}} {{billingAddress?.region}}</p>
+    </app-info-box>
+  </div>
+</app-pannel>
+<app-pannel header="Order Items">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Unit price</th>
+        <th>Discount</th>
+        <th>Net Total</th>
+        <th>Tax %</th>
+        <th>Tax Amount</th>
+        <th>Gross Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pd of order?.lineItems; let i = index">
+        <td>{{i + 1}}</td>
+        <td class="left">
+          <app-product-description [item]="pd"></app-product-description>
+        </td>
+        <td>{{pd.quantity}}</td>
+        <td>{{0.01 * pd.price.value.centAmount | currency: pd.price.value.currencyCode}}</td>
+        <td>{{0 | currency: pd.price.value.currencyCode}}</td>
+        <td>{{0.01 * pd.taxedPrice.totalNet.centAmount | currency: pd.taxedPrice.totalNet.currencyCode}}</td>
+        <td>{{100 * pd.taxRate.amount}}</td>
+        <td>{{0.01 * (pd.taxRate.amount * pd.taxedPrice.totalNet.centAmount) | currency: pd.price.value.currencyCode}}</td>
+        <td>{{0.01 * pd.taxedPrice.totalGross.centAmount | currency: pd.taxedPrice.totalGross.currencyCode}}</td>
+      </tr>
+    </tbody>
+  </table>
+</app-pannel>
