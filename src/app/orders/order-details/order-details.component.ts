@@ -14,6 +14,7 @@ import { Address } from '@cxcloud/ct-types/common';
 export class OrderDetailsComponent implements OnInit {
   order: Order;
   customer: any;
+  deliveries: any;
   shippingAddress: Address;
   billingAddress: Address;
 
@@ -37,8 +38,13 @@ export class OrderDetailsComponent implements OnInit {
           console.log(this.customer);
           this.shippingAddress = this.customerService.getShippingAddress();
           this.billingAddress = this.customerService.getBillingAddress();
+          this.deliveries = this.orderService.deliveries;
         }
       });
     });
+  }
+
+  getDeliveryItems(id: string) {
+    return this.orderService.getDeliveryItems(id);
   }
 }
