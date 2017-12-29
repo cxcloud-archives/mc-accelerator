@@ -7,11 +7,11 @@ import { Customer } from '@cxcloud/ct-types/customers';
 import { Address } from '@cxcloud/ct-types/common';
 
 @Component({
-  selector: 'app-order-details',
-  templateUrl: './order-details.component.html',
-  styleUrls: ['./order-details.component.scss']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss']
 })
-export class OrderDetailsComponent implements OnInit {
+export class OrderComponent implements OnInit {
   order: Order;
   customer: any;
   shippingAddress: Address;

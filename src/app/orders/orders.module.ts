@@ -7,14 +7,14 @@ import { ClarityModule } from 'clarity-angular';
 import { SharedModule } from '../shared/shared.module';
 import { OrdersComponent } from './orders.component';
 import { OrdersRoutingModule } from './orders-routing.module';
-import { OrderDetailsComponent } from './order-details/order-details.component';
+import { OrderComponent } from './order/order.component';
 import { CountryPipe } from '../utils/countries/country.pipe';
-import { ApproveComponent } from './order-details/approve/approve.component';
-import { DeliveryComponent } from './order-details/delivery/delivery.component';
+import { ApproveComponent } from './order/approve/approve.component';
+import { DeliveryComponent } from './order/delivery/delivery.component';
 
 const DECLARATIONS = [
   OrdersComponent,
-  OrderDetailsComponent,
+  OrderComponent,
   ApproveComponent,
   DeliveryComponent
 ];
