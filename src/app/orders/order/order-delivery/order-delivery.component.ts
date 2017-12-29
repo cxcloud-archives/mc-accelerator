@@ -4,11 +4,11 @@ import { Order } from '@cxcloud/ct-types/orders';
 import { Customer } from '@cxcloud/ct-types/customers';
 
 @Component({
-  selector: 'app-delivery',
-  templateUrl: './delivery.component.html',
-  styleUrls: ['./delivery.component.scss']
+  selector: 'app-order-delivery',
+  templateUrl: './order-delivery.component.html',
+  styleUrls: ['./order-delivery.component.scss']
 })
-export class DeliveryComponent implements OnInit {
+export class OrderDeliveryComponent implements OnInit {
   @Input('order') order: Order;
   @Input('customer') customer: Customer;
   deliveries: any;

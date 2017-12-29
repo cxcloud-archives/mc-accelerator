@@ -10,13 +10,13 @@ import { OrdersRoutingModule } from './orders-routing.module';
 import { OrderComponent } from './order/order.component';
 import { CountryPipe } from '../utils/countries/country.pipe';
 import { OrderApproveComponent } from './order/order-approve/order-approve.component';
-import { DeliveryComponent } from './order/delivery/delivery.component';
+import { OrderDeliveryComponent } from './order/order-delivery/order-delivery.component';
 
 const DECLARATIONS = [
   OrdersComponent,
   OrderComponent,
   OrderApproveComponent,
-  DeliveryComponent
+  OrderDeliveryComponent
 ];
 
 @NgModule({

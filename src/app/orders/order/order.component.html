@@ -15,7 +15,7 @@
       <button clrTabLink>Shipping and Delivery</button>
       <clr-tab-content *clrIfActive>
         <app-order-summary [order]="order"></app-order-summary>
-        <app-delivery [order]="order" [customer]="customer"></app-delivery>
+        <app-order-delivery [order]="order" [customer]="customer"></app-order-delivery>
       </clr-tab-content>
     </clr-tab>
   </clr-tabs>
