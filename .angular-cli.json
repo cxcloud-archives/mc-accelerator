@@ -19,7 +19,7 @@
         "../node_modules/@clr/icons/clr-icons.min.css",
         "../node_modules/@clr/ui/clr-ui.min.css",
         "../node_modules/mdi/scss/materialdesignicons.scss",
-        "styles.scss"
+        "assets/scss/styles.scss"
       ],
       "scripts": [
         "../node_modules/@webcomponents/custom-elements/custom-elements.min.js",
