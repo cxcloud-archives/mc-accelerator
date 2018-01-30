@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { ClarityModule } from 'clarity-angular';
+import { ClarityModule } from '@clr/angular';
 
-import { HeaderComponent } from './header/header.component';
-import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
+import { HeaderComponent } from './header';
+import { SidenavBarComponent } from './sidenav-bar';
 
 const DECLARATIONS = [HeaderComponent, SidenavBarComponent];
 

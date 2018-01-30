@@ -22,7 +22,9 @@ export class OrderService {
 
   get deliveries() {
     const order = this.order.getValue();
-    return order.shippingInfo.deliveries;
+    if (order.shippingInfo) {
+      return (order.shippingInfo.deliveries);
+    }
   }
 
   getDeliveryItems(id) {

@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { ClarityModule } from 'clarity-angular';
-import { SharedModule } from '../shared/shared.module';
+import { ClarityModule } from '@clr/angular';
+import { SharedModule } from '../shared';
 import { OrdersComponent } from './orders.component';
 import { OrdersRoutingModule } from './orders-routing.module';
-import { OrderComponent } from './order/order.component';
+import {
+  OrderComponent,
+  OrderApproveComponent,
+  OrderDeliveryComponent,
+  OrderSummaryComponent
+} from './order';
 import { CountryPipe } from '../utils/countries/country.pipe';
-import { OrderApproveComponent } from './order/order-approve/order-approve.component';
-import { OrderDeliveryComponent } from './order/order-delivery/order-delivery.component';
-import { OrderSummaryComponent } from './order/order-summary/order-summary.component';
 
 const DECLARATIONS = [
   OrdersComponent,

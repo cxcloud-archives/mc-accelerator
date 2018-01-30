@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { ClarityModule } from 'clarity-angular';
-import { SharedModule } from '../shared/shared.module';
+import { ClarityModule } from '@clr/angular';
+import { SharedModule } from '../shared';
 import { ReportsComponent } from './reports.component';
 import { ReportsRoutingModule } from './reports-routing.module';
 

@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { ClarityModule } from 'clarity-angular';
+import { ClarityModule } from '@clr/angular';
 import { ClickOutsideModule } from 'ng-click-outside';
 
-import { InfoCardComponent } from './pannel/pannel.component';
-import { BasicCardComponent } from './info-box/info-box.component';
-import { OrderStatusComponent } from './order-status/order-status.component';
-import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { InfoCardComponent } from './pannel';
+import { BasicCardComponent } from './info-box';
+import { OrderStatusComponent } from './order-status';
+import { ProductDescriptionComponent } from './product-description';
 
 const DECLARATIONS = [
   InfoCardComponent,

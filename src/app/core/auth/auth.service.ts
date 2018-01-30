@@ -31,8 +31,7 @@ export class AuthService {
   public login(username: string, password: string, env: string) {
     return this.http
       .post<TokenizedSignInResult>('/auth/login', { username, password })
-      .do(resp => this.handleSignIn(resp, env))
-      .map(resp => resp.customer);
+      .do(resp => this.handleSignIn(resp, env));
   }
 
   public logout() {
