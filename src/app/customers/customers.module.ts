@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from '@clr/angular';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared';
 import { CustomersComponent } from './customers.component';
 import { CustomersRoutingModule } from './customers-routing.module';
 
