@@ -23,9 +23,9 @@ export class AuthService {
     const token = this.storage.retrieve('token');
   }
 
-  private handleSignIn(resp: OAuthToken, env: string) {
+  private handleSignIn(token: OAuthToken, env: string) {
     // this.currentUserService.customer.next('resp.customer');
-    this.currentUserService.token.next(resp.access_token);
+    this.currentUserService.token.next(token);
     this.currentUserService.environment.next(env);
   }
 

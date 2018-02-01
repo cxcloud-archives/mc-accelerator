@@ -7,13 +7,13 @@ import { LocalStorageService } from 'ngx-webstorage';
 
 interface UserData {
   token: OAuthToken;
-  customer: Customer;
+  // customer: Customer;
   environment: any;
 }
 
 @Injectable()
 export class CurrentUserService {
-  public token = new BehaviorSubject<any>(null);
+  public token = new BehaviorSubject<OAuthToken>(null);
   public customer = new BehaviorSubject<Customer>(null);
   public environment = new BehaviorSubject<any>(null);
 
