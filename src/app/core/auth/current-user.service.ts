@@ -7,38 +7,37 @@ import { LocalStorageService } from 'ngx-webstorage';
 
 interface UserData {
   token: OAuthToken;
-  // customer: Customer;
   environment: any;
 }
 
 @Injectable()
 export class CurrentUserService {
   public token = new BehaviorSubject<OAuthToken>(null);
-  public customer = new BehaviorSubject<Customer>(null);
+  public username = new BehaviorSubject<string>(null);
   public environment = new BehaviorSubject<any>(null);
 
   constructor(private storage: LocalStorageService, private router: Router) {
     const token = this.storage.retrieve('token');
-    // const customer = this.storage.retrieve('customer');
+    const username = this.storage.retrieve('username');
     const environment = this.storage.retrieve('environment');
     if (token) {
       this.token.next(token);
     }
-    // if (customer) {
-    //   this.customer.next(customer);
-    // }
+    if (username) {
+      this.username.next(username);
+    }
+
     if (environment) {
       this.storage.store('environment', environment);
     }
     this.token.subscribe(change => this.storage.store('token', change));
-    // this.customer.subscribe(change => this.storage.store('customer', change));
+    this.username.subscribe(change => this.storage.store('username', change));
     this.environment.subscribe(change =>
       this.storage.store('environment', change)
     );
   }
 
   get isLoggedIn() {
-    return this.token.getValue() !== null;
-    // return this.customer.getValue() !== null;
+    return this.username.getValue() !== null;
   }
 }
