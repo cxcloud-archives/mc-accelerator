@@ -7,8 +7,9 @@ import { ClarityModule } from '@clr/angular';
 import { SharedModule } from '../shared';
 import { CustomersComponent } from './customers.component';
 import { CustomersRoutingModule } from './customers-routing.module';
+import { CustomerComponent } from './customer';
 
-const DECLARATIONS = [CustomersComponent];
+const DECLARATIONS = [CustomersComponent, CustomerComponent];
 
 @NgModule({
   imports: [

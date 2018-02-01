@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerService } from '../core/customer/customer.service';
 import { Customer } from '@cxcloud/ct-types/customers';
 
@@ -20,11 +21,18 @@ export class CustomersComponent implements OnInit {
   ];
   placeholder = '------';
 
-  constructor(private customerService: CustomerService) {}
+  constructor(
+    private customerService: CustomerService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.customerService
       .getCustomers()
       .subscribe(result => (this.customers = result));
+  }
+
+  selectCustomer(customerId) {
+    this.router.navigateByUrl(`/customers/${customerId}`);
   }
 }
