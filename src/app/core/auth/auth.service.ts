@@ -6,7 +6,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 import {
   AnonymousSignInResult,
   TokenizedSignInResult,
-  CustomerSignupDraft
+  CustomerSignupDraft,
+  OAuthToken
 } from '@cxcloud/ct-types/customers';
 import { CurrentUserService } from './current-user.service';
 import 'rxjs/add/operator/do';
@@ -22,21 +23,21 @@ export class AuthService {
     const token = this.storage.retrieve('token');
   }
 
-  private handleSignIn(resp: TokenizedSignInResult, env: string) {
-    this.currentUserService.customer.next(resp.customer);
-    this.currentUserService.token.next(resp.token);
+  private handleSignIn(resp: OAuthToken, env: string) {
+    // this.currentUserService.customer.next('resp.customer');
+    this.currentUserService.token.next(resp.access_token);
     this.currentUserService.environment.next(env);
   }
 
   public login(username: string, password: string, env: string) {
     return this.http
-      .post<TokenizedSignInResult>('/auth/login', { username, password })
+      .post<OAuthToken>('/admin/auth/login', { username, password })
       .do(resp => this.handleSignIn(resp, env));
   }
 
   public logout() {
     this.currentUserService.token.next(null);
-    this.currentUserService.customer.next(null);
+    // this.currentUserService.customer.next(null);
     this.currentUserService.environment.next(null);
     this.router.navigateByUrl('/login');
   }

@@ -1,4 +1,4 @@
-<div class="main-container" *ngIf="currentUserService.isLoggedIn; else login">
+<div class="main-container" *ngIf="currentUserService.isLoggedIn; else login_form">
   <app-header></app-header>
   <div class="content-container">
     <div class="content-area">
@@ -10,6 +10,6 @@
   </div>
 </div>
 
-<ng-template #login>
+<ng-template #login_form>
   <router-outlet></router-outlet>
 </ng-template>

@@ -13,31 +13,32 @@ interface UserData {
 
 @Injectable()
 export class CurrentUserService {
-  public token = new BehaviorSubject<OAuthToken>(null);
+  public token = new BehaviorSubject<any>(null);
   public customer = new BehaviorSubject<Customer>(null);
   public environment = new BehaviorSubject<any>(null);
 
   constructor(private storage: LocalStorageService, private router: Router) {
     const token = this.storage.retrieve('token');
-    const customer = this.storage.retrieve('customer');
+    // const customer = this.storage.retrieve('customer');
     const environment = this.storage.retrieve('environment');
     if (token) {
       this.token.next(token);
     }
-    if (customer) {
-      this.customer.next(customer);
-    }
+    // if (customer) {
+    //   this.customer.next(customer);
+    // }
     if (environment) {
       this.storage.store('environment', environment);
     }
     this.token.subscribe(change => this.storage.store('token', change));
-    this.customer.subscribe(change => this.storage.store('customer', change));
+    // this.customer.subscribe(change => this.storage.store('customer', change));
     this.environment.subscribe(change =>
       this.storage.store('environment', change)
     );
   }
 
   get isLoggedIn() {
-    return this.customer.getValue() !== null;
+    return this.token.getValue() !== null;
+    // return this.customer.getValue() !== null;
   }
 }
