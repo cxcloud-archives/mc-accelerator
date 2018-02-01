@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   get currentUser(): any {
     if (this.currentUserService.isLoggedIn) {
-      return this.currentUserService.customer.getValue();
+      return this.currentUserService.username.getValue();
     }
     return false;
   }

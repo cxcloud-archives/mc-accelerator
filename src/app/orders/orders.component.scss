@@ -3,6 +3,9 @@
 .title {
   font-size: 2em;
 }
+.datagrid-row {
+  cursor: pointer;
+}
 
 .datagrid-cell {
   &.status {

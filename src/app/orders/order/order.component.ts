@@ -31,12 +31,14 @@ export class OrderComponent implements OnInit {
         if (order) {
           this.order = order;
           console.log(order);
-          this.customer = this.customerService.getCustomer(
-            this.order.customerId
-          );
-          console.log(this.customer);
-          this.shippingAddress = this.customerService.getShippingAddress();
-          this.billingAddress = this.customerService.getBillingAddress();
+
+          this.customerService
+            .getCustomer(this.order.customerId)
+            .subscribe(customer => {
+              this.customer = customer;
+              this.shippingAddress = this.customerService.getShippingAddress();
+              this.billingAddress = this.customerService.getBillingAddress();
+            });
         }
       });
     });

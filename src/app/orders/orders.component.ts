@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderService } from '../core/order/order.service';
 import { Order } from '@cxcloud/ct-types/orders';
 
@@ -18,9 +19,13 @@ export class OrdersComponent implements OnInit {
     { name: 'Customer Email', field: 'customerEmail' }
   ];
 
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, private router: Router) {}
 
   ngOnInit() {
     this.orderService.getOrders().subscribe(result => (this.orders = result));
+  }
+
+  selectOrder(orderId) {
+    this.router.navigateByUrl(`/orders/${orderId}`);
   }
 }

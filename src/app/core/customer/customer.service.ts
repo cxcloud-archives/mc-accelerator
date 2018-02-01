@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { CUSTOMERS } from '../../mock/customer';
 import { Customer } from '@cxcloud/ct-types/customers';
 
 @Injectable()
 export class CustomerService {
   public customer = new BehaviorSubject<Customer>(null);
-  constructor() {}
 
-  getCustomersList() {
-    return CUSTOMERS;
+  constructor(private http: HttpClient) {}
+
+  getCustomers() {
+    return this.http.get<Customer[]>('/admin/customers');
   }
 
   getCustomer(id: string) {
-    const customer = CUSTOMERS.filter(resp => resp.id === id)[0];
-    this.customer.next(customer);
-    return customer;
+    return this.http
+      .get<Customer>(`/admin/customers/${id}`)
+      .do(customer => this.customer.next(customer));
   }
 
   getShippingAddress() {
