@@ -11,19 +11,19 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 
   getOrders() {
-    return this.http.get<Order[]>('/orders');
+    return this.http.get<Order[]>('/admin/orders');
   }
 
   getOrder(id: string) {
     return this.http
-      .get<Order>(`/orders/${id}`)
+      .get<Order>(`/admin/orders/${id}`)
       .do(order => this.order.next(order));
   }
 
   get deliveries() {
     const order = this.order.getValue();
     if (order.shippingInfo) {
-      return (order.shippingInfo.deliveries);
+      return order.shippingInfo.deliveries;
     }
   }
 
