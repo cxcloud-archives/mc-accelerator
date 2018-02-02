@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { CoreModule } from '../core/core.module';
+import { CoreModule } from '../core';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login-routing.module';
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OrderService } from '../../core/order/order.service';
-import { CustomerService } from '../../core/customer/customer.service';
+import { CustomerService, OrderService } from '../../core';
 import { Order } from '@cxcloud/ct-types/orders';
 import { Customer } from '@cxcloud/ct-types/customers';
 import { Address } from '@cxcloud/ct-types/common';
