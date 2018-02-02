@@ -4,7 +4,7 @@
   <clr-dg-column *ngFor="let column of columns" [clrDgField]="column.field">{{column.name}}</clr-dg-column>
   <ng-container *ngIf="customers">
     <clr-dg-row *clrDgItems="let customer of customers.results" (click)="selectCustomer(customer.id);">
-      <clr-dg-cell>{{customer.id}}</clr-dg-cell>
+      <clr-dg-cell>{{customer.customerNumber || placeholder}}</clr-dg-cell>
       <clr-dg-cell>{{customer.firstName || placeholder}}</clr-dg-cell>
       <clr-dg-cell>{{customer.lastName || placeholder}}</clr-dg-cell>
       <clr-dg-cell>{{customer.company || placeholder}}</clr-dg-cell>

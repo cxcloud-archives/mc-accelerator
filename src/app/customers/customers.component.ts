@@ -11,7 +11,7 @@ import { Customer } from '@cxcloud/ct-types/customers';
 export class CustomersComponent implements OnInit {
   customers: Customer[];
   columns: Array<any> = [
-    { name: 'Customer ID', field: 'id' },
+    { name: 'Customer number', field: 'id' },
     { name: 'First name', field: 'firstName' },
     { name: 'Last name', field: 'lastName' },
     { name: 'Company', field: 'company' },

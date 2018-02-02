@@ -18,6 +18,7 @@ export class OrdersComponent implements OnInit {
     { name: 'Date Created', field: 'createdAt' },
     { name: 'Customer Email', field: 'customerEmail' }
   ];
+  placeholder = '------';
 
   constructor(private orderService: OrderService, private router: Router) {}
 
