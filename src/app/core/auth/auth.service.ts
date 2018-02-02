@@ -32,6 +32,7 @@ export class AuthService {
 
   public logout() {
     this.currentUserService.token.next(null);
+    this.currentUserService.username.next(null);
     this.currentUserService.environment.next(null);
     this.router.navigateByUrl('/login');
   }
