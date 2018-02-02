@@ -1,4 +1,6 @@
-<h1 class="title">Manage Order No.{{order?.id}}</h1>
+<h1 class="title">Manage Order
+  <span *ngIf="order?.orderNumber">No.{{order?.orderNumber}}</span>
+</h1>
 <div class="tabs">
   <clr-tabs>
     <!--Approve order tab -->
