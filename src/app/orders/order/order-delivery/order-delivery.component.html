@@ -1,17 +1,23 @@
 <app-pannel header="Shipping Details">
   <div class="row">
-    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="order">
-      <p>{{order?.shippingAddress.company}}</p>
-      <p>{{order?.shippingAddress.streetName}} {{order?.shippingAddress.additionalAddressInfo}}</p>
-      <p>{{order?.shippingAddress.postalCode}} {{order?.shippingAddress.city}},</p>
-      <p>{{order?.shippingAddress.country | country}} {{order?.shippingAddress?.region}}</p>
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Address">
+      <div *ngIf="order">
+        <p>{{order?.shippingAddress.company}}</p>
+        <p>{{order?.shippingAddress.streetName}} {{order?.shippingAddress.additionalAddressInfo}}</p>
+        <p>{{order?.shippingAddress.postalCode}} {{order?.shippingAddress.city}},</p>
+        <p>{{order?.shippingAddress.country | country}} {{order?.shippingAddress?.region}}</p>
+      </div>
     </app-info-box>
-    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Contact" data="customer">
-      <p>Name: {{customer?.firstName}} {{customer?.lastName}}</p>
-      <p>E-mail: {{customer?.email || "-"}}</p>
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Contact">
+      <div *ngIf="customer">
+        <p>Name: {{customer?.firstName}} {{customer?.lastName}}</p>
+        <p>E-mail: {{customer?.email || "-"}}</p>
+      </div>
     </app-info-box>
-    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Method" data="order">
-      {{order?.shippingInfo?.shippingMethodName}}
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Shipping Method">
+      <div *ngIf="order">
+        {{order?.shippingInfo?.shippingMethodName}}
+      </div>
     </app-info-box>
     <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Additional Information">
     </app-info-box>
@@ -27,7 +33,6 @@
           <th>Product</th>
           <th>Quantity</th>
           <th>Parcel</th>
-
         </tr>
       </thead>
       <tbody>

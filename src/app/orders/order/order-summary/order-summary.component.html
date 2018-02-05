@@ -8,42 +8,44 @@
 <app-pannel header="Order Details">
   <div class="row">
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-      <app-info-box data="order">
-        <div class="row">
+      <app-info-box>
+        <div class="row" *ngIf="order">
           <div class="col-xs-5">Order status:</div>
           <app-order-status class="col-xs-5" [order]="order" about="order" [dropdown]="true"></app-order-status>
         </div>
       </app-info-box>
-      <app-info-box data="order">
-        <div class="row">
+      <app-info-box>
+        <div class="row" *ngIf="order">
           <div class="col-xs-5">Shippment status:</div>
           <app-order-status class="col-xs-5" [order]="order" about="shipment" [dropdown]="true"></app-order-status>
         </div>
       </app-info-box>
-      <app-info-box data="order">
-        <div class="row">
+      <app-info-box>
+        <div class="row" *ngIf="order">
           <div class="col-xs-5">Payment status:</div>
           <app-order-status class="col-xs-5" [order]="order" about="payment" [dropdown]="true"></app-order-status>
         </div>
       </app-info-box>
     </div>
 
-    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" data="order">
-      <div class="row total">
-        <div class="col-xs-6">Subtotal without discount: </div>
-        <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalNet.centAmount | currency: order?.taxedPrice.totalNet.currencyCode}}</div>
-      </div>
-      <div class="row tax">
-        <div class="col-xs-6">{{100 * order?.taxedPrice.taxPortions[0].rate}}% {{order?.taxedPrice.taxPortions[0].name}}:</div>
-        <div class="col-xs-6">{{0.01 * order?.taxedPrice.taxPortions[0].amount.centAmount | currency: order?.taxedPrice.taxPortions[0].amount.currencyCode}}</div>
-      </div>
-      <div class="row total">
-        <div class="col-xs-6">Subtotal (gross):</div>
-        <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalGross.centAmount | currency: order?.taxedPrice.totalGross.currencyCode}}</div>
-      </div>
-      <div class="row total total-gross">
-        <div class="col-xs-6">Total (gross):</div>
-        <div class="col-xs-6">{{0.01 * order?.totalPrice.centAmount | currency: order?.totalPrice.currencyCode}}</div>
+    <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <div *ngIf="order">
+        <div class="row total">
+          <div class="col-xs-6">Subtotal without discount: </div>
+          <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalNet.centAmount | currency: order?.taxedPrice.totalNet.currencyCode}}</div>
+        </div>
+        <div class="row tax">
+          <div class="col-xs-6">{{100 * order?.taxedPrice.taxPortions[0].rate}}% {{order?.taxedPrice.taxPortions[0].name}}:</div>
+          <div class="col-xs-6">{{0.01 * order?.taxedPrice.taxPortions[0].amount.centAmount | currency: order?.taxedPrice.taxPortions[0].amount.currencyCode}}</div>
+        </div>
+        <div class="row total">
+          <div class="col-xs-6">Subtotal (gross):</div>
+          <div class="col-xs-6">{{0.01 * order?.taxedPrice.totalGross.centAmount | currency: order?.taxedPrice.totalGross.currencyCode}}</div>
+        </div>
+        <div class="row total total-gross">
+          <div class="col-xs-6">Total (gross):</div>
+          <div class="col-xs-6">{{0.01 * order?.totalPrice.centAmount | currency: order?.totalPrice.currencyCode}}</div>
+        </div>
       </div>
     </app-info-box>
 
