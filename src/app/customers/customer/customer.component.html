@@ -29,7 +29,15 @@
           </app-info-box>
         </div>
       </app-pannel>
-      <app-pannel header="Account Details"></app-pannel>
+      <app-pannel header="Account Details">
+        <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="New password">
+          <div *ngIf="customer?.password">
+            <input type="text" class="col-lg-6 col-md-8 col-sm-8 col-xs-8 form-control" [formControl]="password">
+            <button class="btn btn-outline">Set Password</button>
+          </div>
+
+        </app-info-box>
+      </app-pannel>
       <app-pannel header="Company Information"></app-pannel>
     </clr-tab>
 

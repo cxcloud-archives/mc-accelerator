@@ -1,0 +1,12 @@
+@import '../modules/_colors';
+
+input[type='text'] {
+  height: 1.3rem;
+  border: 1px solid $light-grey;
+  vertical-align: middle;
+
+  &:focus {
+    border: 1px solid $yellow;
+    background: none;
+  }
+}
