@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
 import { CustomerService } from '../../core';
 import { Customer } from '@cxcloud/ct-types/customers';
 import { Address } from '@cxcloud/ct-types/common';
@@ -12,7 +11,6 @@ import { Address } from '@cxcloud/ct-types/common';
 })
 export class CustomerComponent implements OnInit {
   customer: Customer;
-  password = new FormControl();
 
   constructor(
     private activatedRoute: ActivatedRoute,

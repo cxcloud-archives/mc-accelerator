@@ -5,52 +5,15 @@
     <clr-tab>
       <button clrTabLink id="link1">Details</button>
       <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
-        <div class="row flex-items-xs-between date">
-          <div class="col-xs-4">Date created: {{customer?.createdAt | date:'medium'}}</div>
-          <div class="col-xs-4 text-align-end">Date modified: {{customer?.lastModifiedAt | date:'medium'}}</div>
-        </div>
+        <app-customer-details [customer]="customer"></app-customer-details>
       </clr-tab-content>
-      <app-pannel header="Customer Details">
-        <div class="row">
-          <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="First Name">
-            <p *ngIf="customer?.firstName">{{customer?.firstName}}</p>
-          </app-info-box>
-          <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Last Name">
-            <p *ngIf="customer?.lastName">{{customer?.lastName}}</p>
-          </app-info-box>
-          <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Title">
-            <p *ngIf="customer?.title">{{customer?.title}}</p>
-          </app-info-box>
-          <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="E-mail">
-            <p *ngIf="customer?.email">{{customer?.email}}</p>
-          </app-info-box>
-        </div>
-      </app-pannel>
-      <app-pannel header="Account Details">
-        <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="New password">
-          <div *ngIf="customer?.password">
-            <input type="password" class="col-lg-6 col-md-8 col-sm-8 col-xs-8 form-control" [formControl]="password">
-            <button class="btn btn-outline">Set Password</button>
-          </div>
-        </app-info-box>
-      </app-pannel>
-      <app-pannel header="Company Information">
-        <div class="row">
-          <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="Company Name">
-            <p *ngIf="customer?.companyName">{{customer?.companyName}}</p>
-          </app-info-box>
-          <app-info-box class="col-lg-6 col-md-12 col-sm-12 col-xs-12" header="VAT ID">
-            <p *ngIf="customer?.vatId">{{customer?.vatId}}</p>
-          </app-info-box>
-        </div>
-      </app-pannel>
     </clr-tab>
 
     <!-- Addresses -->
     <clr-tab>
       <button clrTabLink>Addresses</button>
       <clr-tab-content *clrIfActive>
-
+        <app-customer-addresses [customer]="customer"></app-customer-addresses>
       </clr-tab-content>
     </clr-tab>
 
@@ -58,7 +21,7 @@
     <clr-tab>
       <button clrTabLink>Orders</button>
       <clr-tab-content *clrIfActive>
-
+        <app-customer-orders></app-customer-orders>
       </clr-tab-content>
     </clr-tab>
   </clr-tabs>

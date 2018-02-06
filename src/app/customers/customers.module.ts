@@ -5,11 +5,23 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from '@clr/angular';
 import { SharedModule } from '../shared';
+import { PipeModule } from '../utils';
 import { CustomersComponent } from './customers.component';
 import { CustomersRoutingModule } from './customers-routing.module';
-import { CustomerComponent } from './customer';
+import {
+  CustomerComponent,
+  CustomerDetailsComponent,
+  CustomerAddressesComponent,
+  CustomerOrdersComponent
+} from './customer';
 
-const DECLARATIONS = [CustomersComponent, CustomerComponent];
+const DECLARATIONS = [
+  CustomersComponent,
+  CustomerComponent,
+  CustomerDetailsComponent,
+  CustomerAddressesComponent,
+  CustomerOrdersComponent
+];
 
 @NgModule({
   imports: [
@@ -18,6 +30,7 @@ const DECLARATIONS = [CustomersComponent, CustomerComponent];
     ReactiveFormsModule,
     RouterModule,
     HttpModule,
+    PipeModule,
     ClarityModule.forRoot(),
     CustomersRoutingModule,
     SharedModule

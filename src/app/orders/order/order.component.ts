@@ -30,16 +30,17 @@ export class OrderComponent implements OnInit {
         if (order) {
           this.order = order;
           console.log(order);
-
-          this.customerService
-            .getCustomer(this.order.customerId)
-            .subscribe(customer => {
-              this.customer = customer;
-              this.shippingAddress = this.customerService.getShippingAddress();
-              this.billingAddress = this.customerService.getBillingAddress();
-            });
+          this.getCustomer(order.customerId);
         }
       });
+    });
+  }
+
+  getCustomer(customerId) {
+    this.customerService.getCustomer(customerId).subscribe(customer => {
+      this.customer = customer;
+      this.shippingAddress = this.customerService.getShippingAddress();
+      this.billingAddress = this.customerService.getBillingAddress();
     });
   }
 }
