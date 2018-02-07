@@ -23,7 +23,6 @@ export class CustomerOrdersComponent implements OnInit {
   ngOnInit() {
     this.customerService.getMyOrders().subscribe(orders => {
       this.myOrders = orders;
-      console.log(this.myOrders);
     });
   }
   selectOrder() {

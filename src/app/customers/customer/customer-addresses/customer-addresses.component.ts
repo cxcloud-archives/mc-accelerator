@@ -26,12 +26,10 @@ export class CustomerAddressesComponent implements OnInit {
 
   ngOnInit() {
     if (this.customer) {
-      const addresses = [];
-      addresses.push(
+      this.addresses = [
         this.customerService.getShippingAddress(),
         this.customerService.getBillingAddress()
-      );
-      this.addresses = addresses;
+      ];
     }
   }
 

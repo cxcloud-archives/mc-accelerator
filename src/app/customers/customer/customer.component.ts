@@ -24,7 +24,6 @@ export class CustomerComponent implements OnInit {
       this.customerService.getCustomer(params['id']).subscribe(customer => {
         if (customer) {
           this.customer = customer;
-          console.log(customer);
         }
       });
     });

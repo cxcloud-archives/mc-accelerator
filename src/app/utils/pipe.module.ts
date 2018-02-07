@@ -6,11 +6,4 @@ import { CountryPipe } from './countries/country.pipe';
   declarations: [CountryPipe],
   exports: [CountryPipe]
 })
-export class PipeModule {
-  // static forRoot() {
-  //   return {
-  //     ngModule: PipeModule,
-  //     providers: []
-  //   };
-  // }
-}
+export class PipeModule {}
