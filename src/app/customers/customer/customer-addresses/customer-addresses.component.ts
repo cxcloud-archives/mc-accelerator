@@ -10,9 +10,7 @@ import { Address } from '@cxcloud/ct-types/common';
 })
 export class CustomerAddressesComponent implements OnInit {
   @Input('customer') customer: Customer;
-  addresses: Array<any>;
-  // shippingAddress: Address;
-  // billingAddress: Address;
+  addresses: Address[];
 
   columns: Array<any> = [
     { name: 'Contact name' },
@@ -34,8 +32,6 @@ export class CustomerAddressesComponent implements OnInit {
         this.customerService.getBillingAddress()
       );
       this.addresses = addresses;
-
-      console.log(this.customerService.getShippingAddress());
     }
   }
 
