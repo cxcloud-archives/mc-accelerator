@@ -1,0 +1,14 @@
+<clr-datagrid>
+  <clr-dg-column *ngFor="let column of columns">{{column.name}}</clr-dg-column>
+  <ng-container *ngIf="customer">
+    <clr-dg-row *clrDgItems="let address of addresses" (click)="selectAddress();">
+      <clr-dg-cell>{{address?.firstName}} {{address?.lastName}}</clr-dg-cell>
+      <clr-dg-cell>{{address?.companyName}}</clr-dg-cell>
+      <clr-dg-cell>{{address?.streetName}} {{address?.additionalAddressInfo}}</clr-dg-cell>
+      <clr-dg-cell>{{address?.city}}</clr-dg-cell>
+      <clr-dg-cell>{{address?.postalCode}}</clr-dg-cell>
+      <clr-dg-cell>{{address?.region}}</clr-dg-cell>
+      <clr-dg-cell>{{address?.country | country}}</clr-dg-cell>
+    </clr-dg-row>
+  </ng-container>
+</clr-datagrid>

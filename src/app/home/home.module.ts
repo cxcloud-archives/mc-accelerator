@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared';
-import { CoreModule } from '../core/core.module';
+import { CoreModule } from '../core';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 

@@ -1,0 +1,13 @@
+@import '../modules/_colors';
+
+input[type='text'],
+input[type='password'] {
+  height: 1.3rem;
+  border: 1px solid $light-grey;
+  vertical-align: middle;
+
+  &:focus {
+    border: 1px solid $yellow;
+    background: none;
+  }
+}

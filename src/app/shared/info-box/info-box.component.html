@@ -1,10 +1,12 @@
 <div class="card info-block">
   <div class="card-header" *ngIf="header">{{header}}</div>
   <div class="card-block">
-    <div *ngIf="data;else empty">
+    <div #ref>
       <ng-content></ng-content>
-
     </div>
-    <ng-template #empty>No information</ng-template>
+    <span *ngIf="ref.children.length == 0">
+      --------
+    </span>
+    <!-- <ng-template #empty>No information</ng-template> -->
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CustomerService } from '../core/customer/customer.service';
+import { CustomerService } from '../core';
 import { Customer } from '@cxcloud/ct-types/customers';
 
 @Component({

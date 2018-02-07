@@ -1,0 +1,28 @@
+<h1 class="title" *ngIf="customer">{{customer.firstName}} {{customer.lastName}}</h1>
+<div class="tabs">
+  <clr-tabs>
+    <!--Approve order tab -->
+    <clr-tab>
+      <button clrTabLink id="link1">Details</button>
+      <clr-tab-content id="content1" *clrIfActive="true" class="tab-content">
+        <app-customer-details [customer]="customer"></app-customer-details>
+      </clr-tab-content>
+    </clr-tab>
+
+    <!-- Addresses -->
+    <clr-tab>
+      <button clrTabLink>Addresses</button>
+      <clr-tab-content *clrIfActive>
+        <app-customer-addresses [customer]="customer"></app-customer-addresses>
+      </clr-tab-content>
+    </clr-tab>
+
+    <!-- Customer Orders -->
+    <clr-tab>
+      <button clrTabLink>Orders</button>
+      <clr-tab-content *clrIfActive>
+        <app-customer-orders></app-customer-orders>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
+</div>

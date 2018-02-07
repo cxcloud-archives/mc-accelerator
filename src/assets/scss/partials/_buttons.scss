@@ -1,0 +1,28 @@
+@import '../modules/_colors';
+
+.btn.btn-outline {
+  color: $yellow;
+  border-color: $yellow;
+  height: 1.3rem;
+  line-height: 1.3rem;
+  border-radius: 0;
+
+  &:hover {
+    background-color: $supernova;
+    color: $night-rider;
+  }
+}
+
+.login-btn {
+  color: $night-rider;
+  background-color: $yellow;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.5em 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $supernova;
+  }
+}

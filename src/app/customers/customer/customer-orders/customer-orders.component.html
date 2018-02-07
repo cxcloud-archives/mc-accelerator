@@ -1,0 +1,13 @@
+<clr-datagrid>
+  <clr-dg-column *ngFor="let column of columns">{{column.name}}</clr-dg-column>
+  <ng-container *ngIf="myOrders">
+    <clr-dg-row *clrDgItems="let order of myOrders" (click)="selectOrder();">
+      <clr-dg-cell>{{order?.orderNumber}}</clr-dg-cell>
+      <clr-dg-cell>{{order?.orderState}}</clr-dg-cell>
+      <clr-dg-cell>{{order?.paymentState}}</clr-dg-cell>
+      <clr-dg-cell>{{address?.shipmentState}}</clr-dg-cell>
+      <clr-dg-cell>{{0.01 * order?.totalPrice.centAmount | currency: order?.totalPrice.currencyCode}}</clr-dg-cell>
+      <clr-dg-cell>{{order?.createdAt | date}}</clr-dg-cell>
+    </clr-dg-row>
+  </ng-container>
+</clr-datagrid>

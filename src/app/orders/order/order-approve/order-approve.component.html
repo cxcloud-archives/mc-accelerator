@@ -1,18 +1,24 @@
 <app-pannel header="Customer">
   <div class="row">
-    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Details" data="customer">
-      <p>{{customer?.firstName}} {{customer?.lastName}}</p>
-      <p>{{customer?.email}}</p>
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Details">
+      <div *ngIf="customer">
+        <p>{{customer?.firstName}} {{customer?.lastName}}</p>
+        <p>{{customer?.email}}</p>
+      </div>
     </app-info-box>
-    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Shipping Address" data="customer">
-      <p>{{shippingAddress?.streetName}} {{shippingAddress?.additionalAddressInfo}}</p>
-      <p>{{shippingAddress?.postalCode}} {{shippingAddress?.city}}</p>
-      <p>{{shippingAddress?.country | country}} {{shippingAddress?.region}}</p>
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Shipping Address">
+      <div *ngIf="customer">
+        <p>{{shippingAddress?.streetName}} {{shippingAddress?.additionalAddressInfo}}</p>
+        <p>{{shippingAddress?.postalCode}} {{shippingAddress?.city}}</p>
+        <p>{{shippingAddress?.country | country}} {{shippingAddress?.region}}</p>
+      </div>
     </app-info-box>
-    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Billing Address" data="customer">
-      <p>{{billingAddress?.streetName}} {{billingAddress?.additionalAddressInfo}}</p>
-      <p>{{billingAddress?.postalCode}} {{billingAddress?.city}}</p>
-      <p>{{billingAddress?.country | country}} {{billingAddress?.region}}</p>
+    <app-info-box class="col-lg-4 col-md-12 col-sm-12 col-xs-12" header="Billing Address">
+      <div *ngIf="customer">
+        <p>{{billingAddress?.streetName}} {{billingAddress?.additionalAddressInfo}}</p>
+        <p>{{billingAddress?.postalCode}} {{billingAddress?.city}}</p>
+        <p>{{billingAddress?.country | country}} {{billingAddress?.region}}</p>
+      </div>
     </app-info-box>
   </div>
 </app-pannel>

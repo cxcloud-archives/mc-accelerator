@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from '@clr/angular';
 import { SharedModule } from '../shared';
+import { PipeModule } from '../utils';
 import { OrdersComponent } from './orders.component';
 import { OrdersRoutingModule } from './orders-routing.module';
 import {
@@ -13,7 +14,6 @@ import {
   OrderDeliveryComponent,
   OrderSummaryComponent
 } from './order';
-import { CountryPipe } from '../utils/countries/country.pipe';
 
 const DECLARATIONS = [
   OrdersComponent,
@@ -29,11 +29,12 @@ const DECLARATIONS = [
     FormsModule,
     RouterModule,
     HttpModule,
+    PipeModule,
     ClarityModule.forRoot(),
     OrdersRoutingModule,
     SharedModule
   ],
-  declarations: [...DECLARATIONS, CountryPipe],
+  declarations: [...DECLARATIONS],
   exports: [...DECLARATIONS]
 })
 export class OrdersModule {}
