@@ -10,12 +10,12 @@ export const ORDER_STATES = [
     color: 'warning'
   },
   {
-    state: 'Completed',
+    state: 'Complete',
     text: 'Completed',
     color: 'success'
   },
   {
-    state: 'Canceled',
+    state: 'Cancelled',
     text: 'Canceled',
     color: 'danger'
   }
@@ -74,5 +74,10 @@ export const SHIPMENT_STATES = [
     state: 'Delayed',
     text: 'Delayed',
     color: 'danger'
+  },
+  {
+    state: 'Backorder',
+    text: 'Back order',
+    color: 'info'
   }
 ];

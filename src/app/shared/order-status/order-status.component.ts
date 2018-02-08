@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OrderService } from '../../core';
+// import { Order } from '@cxcloud/ct-types/orders';
 import { ORDER_STATES, PAYMENT_STATES, SHIPMENT_STATES } from './states';
 
 @Component({
@@ -13,9 +15,10 @@ export class OrderStatusComponent implements OnInit {
 
   private _receivedState: string;
   private _status: any;
+  action: any;
   isActive = false;
 
-  constructor() {}
+  constructor(private orderService: OrderService) {}
 
   ngOnInit() {}
 
@@ -67,9 +70,30 @@ export class OrderStatusComponent implements OnInit {
     };
   }
 
+  getAction(state) {
+    switch (this.about) {
+      case 'order':
+        return {
+          action: 'changeOrderState',
+          orderState: state
+        };
+      case 'shipment':
+        return {
+          action: 'changeShipmentState',
+          shipmentState: state
+        };
+      case 'payment':
+        return {
+          action: 'changePaymentState',
+          paymentState: state
+        };
+    }
+  }
+
   updateState(state) {
-    /* TODO: Add Api call to updated status */
     this.isActive = false;
+    const action = this.getAction(state.state);
+    this.orderService.updateOrder(action);
     this.currentState = { ...state };
   }
 

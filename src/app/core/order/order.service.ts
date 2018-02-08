@@ -39,4 +39,15 @@ export class OrderService {
       return acc;
     }, []);
   }
+
+  updateOrder(action: any) {
+    const order = this.order.getValue();
+
+    return this.http
+      .put<Order>(`/admin/orders/${order.id}/${order.version}`, {
+        version: order.version,
+        actions: [action]
+      })
+      .subscribe(res => this.order.next(res));
+  }
 }
