@@ -42,8 +42,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid) {
-      this.error.status = false;
-
       const username = this.loginForm.get('username').value;
       const password = this.loginForm.get('password').value;
       const env = this.loginForm.get('environment').value;
@@ -52,21 +50,28 @@ export class LoginComponent implements OnInit {
         if (this.currentUserService.isLoggedIn) {
           this.router.navigateByUrl('/');
         } else {
-          this.error.status = true;
-          this.error.message = resp['message'] ? resp['message'] : '';
+          this.showError(
+            resp['message'] ? resp['message'] : 'Unknown server error'
+          );
         }
       });
     } else {
-      this.getError();
+      this.showError('Invalid user name or password');
     }
   }
-
-  getError() {
+  showError(message = '') {
     const usernameControl = this.loginForm.get('username');
     const passwordControl = this.loginForm.get('password');
-    this.error.status =
+
+    if (
       (!usernameControl.pristine && usernameControl.invalid) ||
-      (!passwordControl.pristine && passwordControl.invalid);
-    this.error.message = 'Invalid user name or password';
+      (!passwordControl.pristine && passwordControl.invalid) ||
+      !this.currentUserService.isLoggedIn
+    ) {
+      this.error = {
+        status: true,
+        message
+      };
+    }
   }
 }
