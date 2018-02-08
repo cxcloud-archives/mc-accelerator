@@ -6,7 +6,7 @@
       <h5 class="hint">Use your CommerceTools ID to sign in.</h5>
     </label>
     <div class="login-group">
-      <div class="error active" *ngIf="hasError">Invalid user name or password</div>
+      <div class="error active" *ngIf="error.status">{{error.message}}</div>
       <div class="auth-source select">
         <select id="login-auth-source" formControlName="environment">
           <option *ngFor="let env of envs" [value]="env.key">{{ env.name }}</option>
