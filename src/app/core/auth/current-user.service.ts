@@ -38,6 +38,6 @@ export class CurrentUserService {
   }
 
   get isLoggedIn() {
-    return this.username.getValue() !== null;
+    return this.token.getValue() !== null;
   }
 }

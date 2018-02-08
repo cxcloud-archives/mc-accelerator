@@ -27,7 +27,11 @@ export class AuthService {
   public login(username: string, password: string, env: string) {
     return this.http
       .post<OAuthToken>('/admin/auth/login', { username, password })
-      .do(resp => this.handleSignIn(resp, username, env));
+      .do(resp => {
+        if (resp.access_token) {
+          this.handleSignIn(resp, username, env);
+        }
+      });
   }
 
   public logout() {

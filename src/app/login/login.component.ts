@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
+
   login() {
     if (this.loginForm.valid) {
       const username = this.loginForm.get('username').value;
@@ -45,12 +46,13 @@ export class LoginComponent implements OnInit {
       const env = this.loginForm.get('environment').value;
 
       this.authService.login(username, password, env).subscribe(resp => {
-        if (resp) {
+        if (this.currentUserService.isLoggedIn) {
           this.router.navigateByUrl('/');
         }
       });
     }
   }
+
   get hasError() {
     const usernameControl = this.loginForm.get('username');
     const passwordControl = this.loginForm.get('password');
