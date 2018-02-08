@@ -26,6 +26,6 @@ export class CustomerOrdersComponent implements OnInit {
     });
   }
   selectOrder() {
-    console.log('Select order');
+    console.log('Select my order');
   }
 }
