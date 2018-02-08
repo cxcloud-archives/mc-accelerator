@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     { key: 'test-shop', name: 'Testing' },
     { key: 'shop', name: 'Production' }
   ];
+  error = { status: false, message: '' };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,6 +42,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid) {
+      this.error.status = false;
+
       const username = this.loginForm.get('username').value;
       const password = this.loginForm.get('password').value;
       const env = this.loginForm.get('environment').value;
@@ -48,17 +51,22 @@ export class LoginComponent implements OnInit {
       this.authService.login(username, password, env).subscribe(resp => {
         if (this.currentUserService.isLoggedIn) {
           this.router.navigateByUrl('/');
+        } else {
+          this.error.status = true;
+          this.error.message = resp['message'] ? resp['message'] : '';
         }
       });
+    } else {
+      this.getError();
     }
   }
 
-  get hasError() {
+  getError() {
     const usernameControl = this.loginForm.get('username');
     const passwordControl = this.loginForm.get('password');
-    return (
+    this.error.status =
       (!usernameControl.pristine && usernameControl.invalid) ||
-      (!passwordControl.pristine && passwordControl.invalid)
-    );
+      (!passwordControl.pristine && passwordControl.invalid);
+    this.error.message = 'Invalid user name or password';
   }
 }
